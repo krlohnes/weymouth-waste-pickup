@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weymouth Waste Pickup Tracker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+            font-weight: 700;
+        }
+        
+        .input-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #34495e;
+            font-size: 1.1em;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .suggestions {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+        
+        .suggestion-item {
+            padding: 12px 15px;
+            cursor: pointer;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background-color 0.2s;
+        }
+        
+        .suggestion-item:hover,
+        .suggestion-item.highlighted {
+            background-color: #f8f9fa;
+        }
+        
+        .suggestion-item:last-child {
+            border-bottom: none;
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .results {
+            margin-top: 30px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .result-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .result-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .result-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .status-icon {
+            font-size: 24px;
+            margin-right: 15px;
+            width: 40px;
+            text-align: center;
+        }
+        
+        .status-text {
+            font-size: 16px;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+        
+        .yes { color: #27ae60; }
+        .no { color: #e74c3c; }
+        .warning { color: #f39c12; }
+        .info { color: #3498db; }
+        
+        .saved-address {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-top: 10px;
+            font-style: italic;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .error {
+            background: rgba(231, 76, 60, 0.1);
+            border-left-color: #e74c3c;
+            color: #c0392b;
+        }
+        
+        .coffee-button {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🗑️ Weymouth Waste Pickup</h1>
+        
+        <div style="text-align: center; margin-bottom: 20px; color: #666; font-size: 14px;">
+            🍃 Yard Waste Season: April 7th - December 8th, 2025
+        </div>
+        
+        <div class="loading" id="loadingIndicator">
+            <div class="loading-spinner"></div>
+            Loading pickup data...
+        </div>
+        
+        <div class="input-group" id="inputGroup" style="display: none;">
+            <label for="address">Enter Your Address:</label>
+            <input type="text" id="address" placeholder="e.g., 123 Main Street" autocomplete="off">
+            <div class="suggestions" id="suggestions"></div>
+            <div class="saved-address" id="savedAddress"></div>
+        </div>
+        
+        <button class="btn" id="checkButton" onclick="checkPickup()" style="display: none;">Check Pickup Schedule</button>
+        
+        <div class="results hidden" id="results">
+            <div class="result-item" id="pickupDayResult">
+                <span class="status-icon" id="pickupDayIcon">📅</span>
+                <span class="status-text" id="pickupDayText">Checking pickup day...</span>
+            </div>
+            
+            <div class="result-item" id="trashResult">
+                <span class="status-icon" id="trashIcon">🗑️</span>
+                <span class="status-text" id="trashText">Checking trash pickup...</span>
+            </div>
+            
+            <div class="result-item" id="yardResult">
+                <span class="status-icon" id="yardIcon">🍃</span>
+                <span class="status-text" id="yardText">Checking yard waste pickup...</span>
+            </div>
+        </div>
+        
+        <div class="coffee-button">
+            <script type="text/javascript"
+                src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
+                data-name="bmc-button" data-slug="klrohnes" 
+                data-color="#5F7FFF" data-emoji=""  
+                data-font="Cookie" data-text="Buy me a coffee" 
+                data-outline-color="#000000" 
+                data-font-color="#ffffff" data-coffee-color="#FFDD00" >
+            </script>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let streetData = [];
+        let holidayData = {};
+        let yardWasteWeeks = {};
+        let currentHighlight = -1;
+
+        // Load data from JSON files
+        async function loadData() {
+            try {
+                // Load holidays data
+                const holidaysResponse = await fetch('data/2025/holidays.json');
+                const holidaysData = await holidaysResponse.json();
+                holidayData = holidaysData.holidays;
+
+                // Load yard waste data
+                const yardWasteResponse = await fetch('data/2025/yardwaste.json');
+                const yardWasteData = await yardWasteResponse.json();
+                yardWasteWeeks = yardWasteData.yardWasteWeeks;
+
+                // Load street data from all files
+                const streetFiles = [
+                    'streets-a-c.json',
+                    'streets-d-g.json', 
+                    'streets-h-m.json',
+                    'streets-n-s.json',
+                    'streets-t-z.json'
+                ];
+
+                streetData = [];
+                for (const file of streetFiles) {
+                    const response = await fetch(`data/2025/${file}`);
+                    const data = await response.json();
+                    streetData = streetData.concat(data.streets);
+                }
+
+                console.log('Data loaded from JSON files');
+                return true;
+            } catch (error) {
+                console.error('Error loading data:', error);
+                showError('Failed to load pickup data. Please try refreshing the page.');
+                return false;
+            }
+        }
+
+        // Initialize the application
+        async function init() {
+            const dataLoaded = await loadData();
+            if (dataLoaded) {
+                // Hide loading indicator and show the form
+                document.getElementById('loadingIndicator').style.display = 'none';
+                document.getElementById('inputGroup').style.display = 'block';
+                document.getElementById('checkButton').style.display = 'block';
+                
+                setupEventListeners();
+                loadSavedAddress();
+            }
+        }
+
+        function setupEventListeners() {
+            const addressInput = document.getElementById('address');
+            const suggestionsDiv = document.getElementById('suggestions');
+
+            addressInput.addEventListener('input', handleAddressInput);
+            addressInput.addEventListener('keydown', handleKeyDown);
+            
+            document.addEventListener('click', function(e) {
+                if (!addressInput.contains(e.target) && !suggestionsDiv.contains(e.target)) {
+                    hideSuggestions();
+                }
+            });
+        }
+
+        function handleAddressInput(e) {
+            const input = e.target.value.trim();
+            if (input.length < 2) {
+                hideSuggestions();
+                return;
+            }
+            showSuggestions(input);
+        }
+
+        function handleKeyDown(e) {
+            const suggestions = document.querySelectorAll('.suggestion-item');
+            
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                currentHighlight = Math.min(currentHighlight + 1, suggestions.length - 1);
+                updateHighlight(suggestions);
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                currentHighlight = Math.max(currentHighlight - 1, -1);
+                updateHighlight(suggestions);
+            } else if (e.key === 'Enter') {
+                e.preventDefault();
+                if (currentHighlight >= 0 && suggestions[currentHighlight]) {
+                    selectSuggestion(suggestions[currentHighlight].textContent);
+                } else {
+                    checkPickup();
+                }
+            } else if (e.key === 'Escape') {
+                hideSuggestions();
+            }
+        }
+
+        function showSuggestions(input) {
+            const suggestionsDiv = document.getElementById('suggestions');
+            const matches = findMatches(input);
+            
+            if (matches.length === 0) {
+                hideSuggestions();
+                return;
+            }
+
+            suggestionsDiv.innerHTML = '';
+            currentHighlight = -1;
+
+            matches.forEach((match) => {
+                const div = document.createElement('div');
+                div.className = 'suggestion-item';
+                div.textContent = match;
+                div.addEventListener('click', () => selectSuggestion(match));
+                suggestionsDiv.appendChild(div);
+            });
+
+            suggestionsDiv.style.display = 'block';
+        }
+
+        function findMatches(input) {
+            const streetPart = input.replace(/^\d+\s*/, '').toUpperCase();
+            if (streetPart.length < 2) return [];
+
+            const matches = new Set();
+            streetData.forEach(street => {
+                if (street.street.includes(streetPart)) {
+                    matches.add(street.street);
+                }
+            });
+
+            return Array.from(matches).sort().slice(0, 10);
+        }
+
+        function updateHighlight(suggestions) {
+            suggestions.forEach((item, index) => {
+                if (index === currentHighlight) {
+                    item.classList.add('highlighted');
+                } else {
+                    item.classList.remove('highlighted');
+                }
+            });
+        }
+
+        function selectSuggestion(suggestion) {
+            const addressInput = document.getElementById('address');
+            const currentValue = addressInput.value;
+            
+            const numberMatch = currentValue.match(/^(\d+\s*)/);
+            if (numberMatch) {
+                addressInput.value = numberMatch[1] + suggestion;
+            } else {
+                addressInput.value = suggestion;
+            }
+            
+            hideSuggestions();
+        }
+
+        function hideSuggestions() {
+            document.getElementById('suggestions').style.display = 'none';
+            currentHighlight = -1;
+        }
+
+        function loadSavedAddress() {
+            const savedAddr = localStorage.getItem('weymouth_address');
+            if (savedAddr) {
+                document.getElementById('address').value = savedAddr;
+                document.getElementById('savedAddress').textContent = `Saved: ${savedAddr}`;
+            }
+        }
+
+        function parseAddress(address) {
+            const match = address.match(/^(\d+)\s+(.+)$/);
+            if (match) {
+                return {
+                    number: parseInt(match[1]),
+                    street: match[2].toUpperCase().trim()
+                };
+            }
+            return null;
+        }
+
+        function findStreetInfo(streetName, houseNumber) {
+            const matchingStreets = streetData.filter(street => {
+                const streetUpper = street.street.toUpperCase();
+                const searchUpper = streetName.toUpperCase();
+                return streetUpper.includes(searchUpper) || searchUpper.includes(streetUpper);
+            });
+            
+            return matchingStreets.find(street => 
+                houseNumber >= street.low && houseNumber <= street.high
+            ) || null;
+        }
+
+        function checkPickup() {
+            const address = document.getElementById('address').value.trim();
+            
+            if (!address) {
+                showError('Please enter your address');
+                return;
+            }
+
+            localStorage.setItem('weymouth_address', address);
+            document.getElementById('savedAddress').textContent = `Saved: ${address}`;
+
+            const parsed = parseAddress(address);
+            if (!parsed) {
+                showError('Please enter address in format: "123 Main Street"');
+                return;
+            }
+
+            const streetInfo = findStreetInfo(parsed.street, parsed.number);
+            if (!streetInfo) {
+                const similarStreets = streetData.filter(street => {
+                    const streetUpper = street.street.toUpperCase();
+                    const searchUpper = parsed.street.toUpperCase();
+                    return streetUpper.includes(searchUpper) || searchUpper.includes(streetUpper);
+                });
+                
+                if (similarStreets.length > 0) {
+                    const ranges = similarStreets.map(s => `${s.low}-${s.high}`).join(', ');
+                    showError(`House number ${parsed.number} not found for ${parsed.street}. Valid ranges: ${ranges}`);
+                } else {
+                    showError(`Street "${parsed.street}" not found in Weymouth pickup database`);
+                }
+                return;
+            }
+
+            document.getElementById('results').classList.remove('hidden');
+            document.getElementById('results').classList.remove('error');
+            
+            updatePickupDay(streetInfo);
+            checkHolidayDelay(streetInfo.day);
+            checkYardWastePickup(streetInfo.zone);
+        }
+
+        function updatePickupDay(streetInfo) {
+            document.getElementById('pickupDayIcon').textContent = '📅';
+            document.getElementById('pickupDayText').textContent = `Pickup day: ${streetInfo.day} (Zone ${streetInfo.zone})`;
+            document.getElementById('pickupDayText').className = 'status-text info';
+        }
+
+        function checkHolidayDelay() {
+            const today = new Date();
+            const thisWeek = getWeekDates(today);
+            const nextWeek = getWeekDates(new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000));
+            
+            let isDelayed = false;
+            let delayReason = '';
+            
+            for (const [date, holiday] of Object.entries(holidayData)) {
+                const holidayDate = new Date(date);
+                const dayOfWeek = holidayDate.getDay();
+                
+                if (dayOfWeek >= 1 && dayOfWeek <= 5) {
+                    if (isDateInWeek(holidayDate, thisWeek) || isDateInWeek(holidayDate, nextWeek)) {
+                        isDelayed = true;
+                        delayReason = holiday;
+                        break;
+                    }
+                }
+            }
+            
+            const trashIcon = document.getElementById('trashIcon');
+            const trashText = document.getElementById('trashText');
+            
+            if (isDelayed) {
+                trashIcon.textContent = '⚠️';
+                trashText.textContent = `Trash pickup may be delayed due to ${delayReason}`;
+                trashText.className = 'status-text warning';
+            } else {
+                trashIcon.textContent = '✅';
+                trashText.textContent = 'No trash pickup delays this week';
+                trashText.className = 'status-text yes';
+            }
+        }
+
+        function checkYardWastePickup(zone) {
+            const today = new Date();
+            const thisWeekStart = getWeekStart(today);
+            const thisWeekStr = formatDate(thisWeekStart);
+            
+            const zoneWeeks = yardWasteWeeks[zone] || [];
+            const hasYardWaste = zoneWeeks.includes(thisWeekStr);
+            
+            const yardIcon = document.getElementById('yardIcon');
+            const yardText = document.getElementById('yardText');
+            
+            if (hasYardWaste) {
+                yardIcon.textContent = '🍃';
+                yardText.textContent = `Yes! Yard waste pickup this week (Zone ${zone})`;
+                yardText.className = 'status-text yes';
+            } else {
+                yardIcon.textContent = '❌';
+                yardText.textContent = `No yard waste pickup this week (Zone ${zone})`;
+                yardText.className = 'status-text no';
+            }
+        }
+
+        function getWeekDates(date) {
+            const week = [];
+            const startOfWeek = new Date(date);
+            startOfWeek.setDate(date.getDate() - date.getDay());
+            
+            for (let i = 0; i < 7; i++) {
+                const day = new Date(startOfWeek);
+                day.setDate(startOfWeek.getDate() + i);
+                week.push(day);
+            }
+            return week;
+        }
+
+        function isDateInWeek(date, weekDates) {
+            return weekDates.some(weekDate => 
+                weekDate.toDateString() === date.toDateString()
+            );
+        }
+
+        function getWeekStart(date) {
+            const startOfWeek = new Date(date);
+            startOfWeek.setDate(date.getDate() - date.getDay() + 1);
+            return startOfWeek;
+        }
+
+        function formatDate(date) {
+            return date.toISOString().split('T')[0];
+        }
+
+        function showError(message) {
+            const results = document.getElementById('results');
+            results.classList.remove('hidden');
+            results.className = 'results error';
+            results.innerHTML = `
+                <div class="result-item">
+                    <span class="status-icon">⚠️</span>
+                    <span class="status-text">${message}</span>
+                </div>
+            `;
+        }
+
+        // Initialize when page loads
+        window.addEventListener('load', init);
+    </script>
+</body>
+</html>
