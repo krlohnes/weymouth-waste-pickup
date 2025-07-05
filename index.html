@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weymouth Waste Pickup Tracker</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗑️</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -262,6 +263,11 @@
             font-size: 0.875rem;
         }
         
+        .saved-address:hover {
+            color: #3b82f6;
+            text-decoration: underline;
+        }
+        
         .hidden {
             display: none;
         }
@@ -463,7 +469,6 @@
                 // Hide loading indicator and show the form
                 document.getElementById('loadingIndicator').style.display = 'none';
                 document.getElementById('inputGroup').style.display = 'block';
-                document.getElementById('checkButton').style.display = 'block';
                 
                 setupEventListeners();
                 loadSavedAddress();
@@ -476,12 +481,20 @@
 
             addressInput.addEventListener('input', handleAddressInput);
             addressInput.addEventListener('keydown', handleKeyDown);
+            addressInput.addEventListener('focus', handleAddressFocus);
             
             document.addEventListener('click', function(e) {
                 if (!addressInput.contains(e.target) && !suggestionsDiv.contains(e.target)) {
                     hideSuggestions();
                 }
             });
+        }
+
+        function handleAddressFocus(e) {
+            // Clear the address field when user clicks into it
+            e.target.value = '';
+            hideSuggestions();
+            updateCheckButtonVisibility();
         }
 
         function handleAddressInput(e) {
@@ -491,7 +504,8 @@
             } else {
                 showSuggestions(input);
             }
-            updateButtonVisibility();
+            // Only update check button visibility as user types, not the save button
+            updateCheckButtonVisibility();
         }
 
         function handleKeyDown(e) {
@@ -586,27 +600,77 @@
         function loadSavedAddress() {
             const savedAddr = localStorage.getItem('weymouth_address');
             if (savedAddr) {
-                document.getElementById('savedAddress').textContent = `Saved: ${savedAddr}`;
+                const savedAddressElement = document.getElementById('savedAddress');
+                savedAddressElement.textContent = `Saved: ${savedAddr}`;
+                // Make the saved address clickable
+                savedAddressElement.style.cursor = 'pointer';
+                savedAddressElement.onclick = function() {
+                    reloadSavedAddress();
+                };
                 // Auto-fill the saved address for convenience, but don't auto-save changes
                 document.getElementById('address').value = savedAddr;
+                // Hide the check button since we're showing the saved address
+                document.getElementById('checkButton').style.display = 'none';
+                // Automatically load results for saved address
+                checkPickup();
+            } else {
+                // Show the check button for first-time users
+                document.getElementById('checkButton').style.display = 'block';
             }
-            updateButtonVisibility();
         }
         
-        function updateButtonVisibility() {
+        function reloadSavedAddress() {
+            const savedAddr = localStorage.getItem('weymouth_address');
+            if (savedAddr) {
+                document.getElementById('address').value = savedAddr;
+                document.getElementById('checkButton').style.display = 'none';
+                checkPickup();
+            }
+        }
+        
+        function updateCheckButtonVisibility() {
+            const currentAddress = document.getElementById('address').value.trim();
+            const savedAddress = localStorage.getItem('weymouth_address');
+            const checkButton = document.getElementById('checkButton');
+            
+            // Show "Check Pickup Schedule" button only if:
+            // 1. No saved address exists, OR
+            // 2. Current address is different from saved address AND user is actively typing
+            if (!savedAddress) {
+                checkButton.style.display = 'block';
+            } else if (currentAddress && currentAddress !== savedAddress) {
+                checkButton.style.display = 'block';
+            } else {
+                checkButton.style.display = 'none';
+            }
+        }
+        
+        function updateSaveButtonVisibility() {
             const currentAddress = document.getElementById('address').value.trim();
             const savedAddress = localStorage.getItem('weymouth_address');
             const updateButton = document.getElementById('updateAddressButton');
+            const results = document.getElementById('results');
             
-            // Show "Update My Address" button if:
-            // 1. No saved address exists, OR
-            // 2. Current address is different from saved address
-            if (!savedAddress || (currentAddress && currentAddress !== savedAddress)) {
+            // Show "Save as My Address" button only if:
+            // 1. There's a saved address AND
+            // 2. Current address is different from saved address AND
+            // 3. Results are currently visible (meaning successful lookup) AND
+            // 4. Results are NOT an error (meaning it was a successful lookup)
+            if (savedAddress && 
+                currentAddress && 
+                currentAddress !== savedAddress && 
+                !results.classList.contains('hidden') && 
+                !results.classList.contains('error')) {
                 updateButton.style.display = 'block';
-                updateButton.textContent = savedAddress ? 'Update My Address' : 'Save as My Address';
+                updateButton.textContent = 'Save as My Address';
             } else {
                 updateButton.style.display = 'none';
             }
+        }
+        
+        function updateButtonVisibility() {
+            updateCheckButtonVisibility();
+            updateSaveButtonVisibility();
         }
 
         function parseAddress(address) {
@@ -663,12 +727,22 @@
                 return;
             }
 
+            // If no saved address exists, save this as the default
+            const savedAddress = localStorage.getItem('weymouth_address');
+            if (!savedAddress) {
+                localStorage.setItem('weymouth_address', address);
+                document.getElementById('savedAddress').textContent = `Saved: ${address}`;
+            }
+
             document.getElementById('results').classList.remove('hidden');
             document.getElementById('results').classList.remove('error');
             
             updatePickupDay(streetInfo);
             checkHolidayDelay(streetInfo.day);
             checkYardWastePickup(streetInfo.zone);
+            
+            // Update button visibility after successful lookup
+            updateSaveButtonVisibility();
         }
         
         function updateMyAddress() {
@@ -695,10 +769,7 @@
             // Save the address
             localStorage.setItem('weymouth_address', address);
             document.getElementById('savedAddress').textContent = `Saved: ${address}`;
-            updateButtonVisibility();
-            
-            // Also run the pickup check
-            checkPickup();
+            updateSaveButtonVisibility();
         }
 
         function updatePickupDay(streetInfo) {
