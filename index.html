@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weymouth Waste Pickup Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,58 +15,84 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            padding: 20px;
+            padding: 24px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         
         .container {
-            max-width: 600px;
+            max-width: 620px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
+            padding: 40px;
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.15),
+                0 10px 20px rgba(0, 0, 0, 0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
         h1 {
             text-align: center;
             color: #2c3e50;
-            margin-bottom: 30px;
-            font-size: 2.2em;
+            margin-bottom: 12px;
+            font-size: 2.5rem;
             font-weight: 700;
+            letter-spacing: -0.025em;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 36px;
         }
         
         .input-group {
-            margin-bottom: 25px;
+            margin-bottom: 28px;
             position: relative;
         }
         
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-weight: 600;
-            color: #34495e;
-            font-size: 1.1em;
+            color: #475569;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
         
         input[type="text"] {
             width: 100%;
-            padding: 15px;
-            border: 2px solid #e0e0e0;
+            padding: 16px 20px;
+            border: 2px solid rgba(226, 232, 240, 0.8);
             border-radius: 12px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.95);
+            color: #1e293b;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
         
         input[type="text"]:focus {
             outline: none;
             border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-            transform: translateY(-2px);
+            box-shadow: 
+                0 0 0 3px rgba(102, 126, 234, 0.12),
+                0 4px 12px rgba(0, 0, 0, 0.08);
+            transform: translateY(-1px);
+        }
+        
+        input[type="text"]::placeholder {
+            color: #94a3b8;
         }
         
         .suggestions {
@@ -71,26 +100,33 @@
             top: 100%;
             left: 0;
             right: 0;
-            background: white;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.98);
+            border: 1px solid rgba(226, 232, 240, 0.6);
+            border-radius: 12px;
             max-height: 200px;
             overflow-y: auto;
             z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 
+                0 10px 25px rgba(0, 0, 0, 0.12),
+                0 4px 10px rgba(0, 0, 0, 0.06);
+            backdrop-filter: blur(10px);
             display: none;
+            margin-top: 4px;
         }
         
         .suggestion-item {
-            padding: 12px 15px;
+            padding: 12px 16px;
             cursor: pointer;
-            border-bottom: 1px solid #f0f0f0;
-            transition: background-color 0.2s;
+            border-bottom: 1px solid rgba(241, 245, 249, 0.8);
+            transition: all 0.15s ease;
+            font-size: 0.9rem;
+            color: #334155;
         }
         
         .suggestion-item:hover,
         .suggestion-item.highlighted {
-            background-color: #f8f9fa;
+            background-color: rgba(102, 126, 234, 0.08);
+            color: #1e293b;
         }
         
         .suggestion-item:last-child {
@@ -99,44 +135,92 @@
         
         .btn {
             width: 100%;
-            padding: 15px;
+            padding: 16px 24px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
             border-radius: 12px;
-            font-size: 16px;
+            font-size: 1rem;
             font-weight: 600;
+            font-family: inherit;
             cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 10px;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-top: 12px;
+            box-shadow: 
+                0 4px 12px rgba(102, 126, 234, 0.25),
+                0 2px 6px rgba(102, 126, 234, 0.1);
         }
         
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+            box-shadow: 
+                0 8px 20px rgba(102, 126, 234, 0.35),
+                0 4px 10px rgba(102, 126, 234, 0.15);
+            background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+        }
+        
+        .btn:active {
+            transform: translateY(-1px);
+        }
+        
+        .btn-secondary {
+            width: 100%;
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #667eea;
+            border: 2px solid #667eea;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-top: 8px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-1px);
+            box-shadow: 
+                0 6px 15px rgba(102, 126, 234, 0.25),
+                0 2px 6px rgba(102, 126, 234, 0.1);
+        }
+        
+        .btn-secondary:active {
+            transform: translateY(0);
         }
         
         .results {
-            margin-top: 30px;
-            padding: 25px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 15px;
-            border-left: 5px solid #667eea;
+            margin-top: 32px;
+            padding: 28px;
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 16px;
+            border-left: 4px solid #667eea;
+            backdrop-filter: blur(10px);
+            box-shadow: 
+                0 8px 20px rgba(0, 0, 0, 0.08),
+                0 3px 8px rgba(0, 0, 0, 0.04);
         }
         
         .result-item {
             display: flex;
             align-items: center;
-            margin-bottom: 15px;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.7);
-            border-radius: 10px;
-            transition: all 0.3s ease;
+            margin-bottom: 16px;
+            padding: 18px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 12px;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
         
         .result-item:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transform: translateX(4px);
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 
+                0 6px 15px rgba(0, 0, 0, 0.08),
+                0 2px 6px rgba(0, 0, 0, 0.04);
         }
         
         .result-item:last-child {
@@ -144,16 +228,18 @@
         }
         
         .status-icon {
-            font-size: 24px;
-            margin-right: 15px;
+            font-size: 1.5rem;
+            margin-right: 16px;
             width: 40px;
             text-align: center;
+            flex-shrink: 0;
         }
         
         .status-text {
-            font-size: 16px;
+            font-size: 1rem;
             font-weight: 500;
-            color: #2c3e50;
+            color: #334155;
+            line-height: 1.4;
         }
         
         .yes { color: #27ae60; }
@@ -162,10 +248,18 @@
         .info { color: #3498db; }
         
         .saved-address {
-            font-size: 14px;
-            color: #7f8c8d;
-            margin-top: 10px;
-            font-style: italic;
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-top: 8px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .saved-address::before {
+            content: '📍';
+            font-size: 0.875rem;
         }
         
         .hidden {
@@ -173,34 +267,45 @@
         }
         
         .error {
-            background: rgba(231, 76, 60, 0.1);
+            background: rgba(231, 76, 60, 0.08);
             border-left-color: #e74c3c;
-            color: #c0392b;
+            color: #dc2626;
         }
         
-        .coffee-button {
+        .coffee-section {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 36px;
             padding-top: 20px;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            font-size: 0.875rem;
+            color: #64748b;
+        }
+        
+        .coffee-text {
+            margin-bottom: 12px;
+        }
+        
+        .coffee-section #bmc-button {
+            transform: scale(0.75);
+            transform-origin: center;
         }
         
         .loading {
             text-align: center;
-            padding: 20px;
-            color: #666;
-            font-style: italic;
+            padding: 32px 20px;
+            color: #64748b;
+            font-weight: 500;
         }
         
         .loading-spinner {
             display: inline-block;
             width: 20px;
             height: 20px;
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid #667eea;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top: 2px solid #667eea;
             border-radius: 50%;
             animation: spin 1s linear infinite;
-            margin-right: 10px;
+            margin-right: 12px;
         }
         
         @keyframes spin {
@@ -208,14 +313,46 @@
             100% { transform: rotate(360deg); }
         }
         
-        @media (max-width: 480px) {
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(20px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+        
+        .container {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        @media (max-width: 640px) {
+            body {
+                padding: 16px;
+            }
+            
             .container {
-                padding: 20px;
-                margin: 10px;
+                padding: 28px;
             }
             
             h1 {
-                font-size: 1.8em;
+                font-size: 2.25rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 24px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .result-item {
+                padding: 16px;
             }
         }
     </style>
@@ -224,7 +361,7 @@
     <div class="container">
         <h1>🗑️ Weymouth Waste Pickup</h1>
         
-        <div style="text-align: center; margin-bottom: 20px; color: #666; font-size: 14px;">
+        <div class="subtitle">
             🍃 Yard Waste Season: April 7th - December 8th, 2025
         </div>
         
@@ -241,6 +378,8 @@
         </div>
         
         <button class="btn" id="checkButton" onclick="checkPickup()" style="display: none;">Check Pickup Schedule</button>
+        
+        <button class="btn-secondary" id="updateAddressButton" onclick="updateMyAddress()" style="display: none;">Update My Address</button>
         
         <div class="results hidden" id="results">
             <div class="result-item" id="pickupDayResult">
@@ -259,7 +398,8 @@
             </div>
         </div>
         
-        <div class="coffee-button">
+        <div class="coffee-section">
+            <div class="coffee-text">Has this been useful? Feel free to</div>
             <script type="text/javascript"
                 src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
                 data-name="bmc-button" data-slug="klrohnes" 
@@ -348,9 +488,10 @@
             const input = e.target.value.trim();
             if (input.length < 2) {
                 hideSuggestions();
-                return;
+            } else {
+                showSuggestions(input);
             }
-            showSuggestions(input);
+            updateButtonVisibility();
         }
 
         function handleKeyDown(e) {
@@ -445,8 +586,26 @@
         function loadSavedAddress() {
             const savedAddr = localStorage.getItem('weymouth_address');
             if (savedAddr) {
-                document.getElementById('address').value = savedAddr;
                 document.getElementById('savedAddress').textContent = `Saved: ${savedAddr}`;
+                // Auto-fill the saved address for convenience, but don't auto-save changes
+                document.getElementById('address').value = savedAddr;
+            }
+            updateButtonVisibility();
+        }
+        
+        function updateButtonVisibility() {
+            const currentAddress = document.getElementById('address').value.trim();
+            const savedAddress = localStorage.getItem('weymouth_address');
+            const updateButton = document.getElementById('updateAddressButton');
+            
+            // Show "Update My Address" button if:
+            // 1. No saved address exists, OR
+            // 2. Current address is different from saved address
+            if (!savedAddress || (currentAddress && currentAddress !== savedAddress)) {
+                updateButton.style.display = 'block';
+                updateButton.textContent = savedAddress ? 'Update My Address' : 'Save as My Address';
+            } else {
+                updateButton.style.display = 'none';
             }
         }
 
@@ -481,9 +640,6 @@
                 return;
             }
 
-            localStorage.setItem('weymouth_address', address);
-            document.getElementById('savedAddress').textContent = `Saved: ${address}`;
-
             const parsed = parseAddress(address);
             if (!parsed) {
                 showError('Please enter address in format: "123 Main Street"');
@@ -513,6 +669,36 @@
             updatePickupDay(streetInfo);
             checkHolidayDelay(streetInfo.day);
             checkYardWastePickup(streetInfo.zone);
+        }
+        
+        function updateMyAddress() {
+            const address = document.getElementById('address').value.trim();
+            
+            if (!address) {
+                showError('Please enter your address');
+                return;
+            }
+            
+            // Validate the address first
+            const parsed = parseAddress(address);
+            if (!parsed) {
+                showError('Please enter address in format: "123 Main Street"');
+                return;
+            }
+            
+            const streetInfo = findStreetInfo(parsed.street, parsed.number);
+            if (!streetInfo) {
+                showError('Please enter a valid Weymouth address');
+                return;
+            }
+            
+            // Save the address
+            localStorage.setItem('weymouth_address', address);
+            document.getElementById('savedAddress').textContent = `Saved: ${address}`;
+            updateButtonVisibility();
+            
+            // Also run the pickup check
+            checkPickup();
         }
 
         function updatePickupDay(streetInfo) {
