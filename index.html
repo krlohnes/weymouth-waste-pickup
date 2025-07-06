@@ -856,7 +856,7 @@
 
         function getWeekStart(date) {
             const startOfWeek = new Date(date);
-            startOfWeek.setDate(date.getDate() - date.getDay() + 1);
+            startOfWeek.setDate(date.getDate() - date.getDay());
             return startOfWeek;
         }
 
