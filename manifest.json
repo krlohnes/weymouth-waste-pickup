@@ -1,0 +1,22 @@
+{
+  "name": "Weymouth Waste Pickup",
+  "short_name": "Waste Pickup",
+  "description": "Check trash and yard waste pickup schedules for Weymouth, MA",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#667eea",
+  "theme_color": "#667eea",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 192 192%22><rect width=%22192%22 height=%22192%22 fill=%22%23667eea%22/><text x=%2250%%22 y=%2250%%22 font-size=%22120%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22>🗑️</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 512 512%22><rect width=%22512%22 height=%22512%22 fill=%22%23667eea%22/><text x=%2250%%22 y=%2250%%22 font-size=%22320%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22>🗑️</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}
