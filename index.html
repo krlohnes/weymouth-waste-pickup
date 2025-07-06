@@ -292,6 +292,36 @@
             color: #64748b;
         }
         
+        .install-button {
+            display: none;
+            width: 100%;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-top: 16px;
+            box-shadow: 
+                0 4px 12px rgba(16, 185, 129, 0.25),
+                0 2px 6px rgba(16, 185, 129, 0.1);
+        }
+        
+        .install-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                0 8px 20px rgba(16, 185, 129, 0.35),
+                0 4px 10px rgba(16, 185, 129, 0.15);
+        }
+        
+        .install-button:active {
+            transform: translateY(-1px);
+        }
+        
         .coffee-text {
             margin-bottom: 12px;
         }
@@ -392,6 +422,8 @@
         
         <button class="btn-secondary" id="updateAddressButton" onclick="updateMyAddress()" style="display: none;">Update My Address</button>
         
+        <button class="install-button" id="installButton" onclick="installPWA()">📱 Install as App</button>
+        
         <div class="results hidden" id="results">
             <div class="result-item" id="pickupDayResult">
                 <span class="status-icon" id="pickupDayIcon">📅</span>
@@ -428,6 +460,7 @@
         let holidayData = {};
         let yardWasteWeeks = {};
         let currentHighlight = -1;
+        let deferredPrompt;
 
         // Load data from JSON files
         async function loadData() {
@@ -881,6 +914,41 @@
             `;
         }
 
+        // PWA Install functionality
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Prevent Chrome 67 and earlier from automatically showing the prompt
+            e.preventDefault();
+            // Stash the event so it can be triggered later
+            deferredPrompt = e;
+            // Show the install button
+            document.getElementById('installButton').style.display = 'block';
+        });
+        
+        function installPWA() {
+            if (deferredPrompt) {
+                // Show the install prompt
+                deferredPrompt.prompt();
+                // Wait for the user to respond to the prompt
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the install prompt');
+                    } else {
+                        console.log('User dismissed the install prompt');
+                    }
+                    deferredPrompt = null;
+                    // Hide the install button
+                    document.getElementById('installButton').style.display = 'none';
+                });
+            }
+        }
+        
+        // Check if already installed
+        window.addEventListener('appinstalled', () => {
+            // Hide the install button
+            document.getElementById('installButton').style.display = 'none';
+            console.log('PWA was installed');
+        });
+        
         // Initialize when page loads
         window.addEventListener('load', init);
     </script>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#667eea" rx="50"/>
+  <g transform="translate(256, 256)">
+    <!-- Trash can lid -->
+    <rect x="-100" y="-130" width="200" height="30" fill="white" rx="5"/>
+    <rect x="-30" y="-150" width="60" height="20" fill="white" rx="5"/>
+    <!-- Trash can body -->
+    <path d="M -90 -90 L -75 100 L 75 100 L 90 -90 Z" fill="white"/>
+    <!-- Trash can lines -->
+    <rect x="-50" y="-65" width="10" height="130" fill="#667eea" rx="5"/>
+    <rect x="-20" y="-65" width="10" height="130" fill="#667eea" rx="5"/>
+    <rect x="10" y="-65" width="10" height="130" fill="#667eea" rx="5"/>
+    <rect x="40" y="-65" width="10" height="130" fill="#667eea" rx="5"/>
+  </g>
+</svg>
