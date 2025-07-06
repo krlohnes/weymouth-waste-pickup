@@ -920,11 +920,22 @@
             return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         }
         
+        function isInstalledPWA() {
+            // Check if running as installed PWA
+            return (window.matchMedia('(display-mode: standalone)').matches) || 
+                   (window.navigator.standalone) || 
+                   document.referrer.includes('android-app://');
+        }
+        
         function checkPWASupport() {
             const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-            const isInStandaloneMode = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
             
-            if (!isInStandaloneMode && isMobileDevice()) {
+            // Don't show install button if already installed
+            if (isInstalledPWA()) {
+                return;
+            }
+            
+            if (isMobileDevice()) {
                 if (isIOS) {
                     // Show iOS-specific install button
                     const installButton = document.getElementById('installButton');
@@ -939,8 +950,8 @@
             e.preventDefault();
             // Stash the event so it can be triggered later
             deferredPrompt = e;
-            // Only show the install button on mobile devices
-            if (isMobileDevice()) {
+            // Only show the install button on mobile devices that haven't installed it
+            if (isMobileDevice() && !isInstalledPWA()) {
                 document.getElementById('installButton').style.display = 'block';
             }
         });
