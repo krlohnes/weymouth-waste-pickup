@@ -6,7 +6,8 @@ const {
     getYardWasteMonday,
     findStreetInfo,
     getWeekDates,
-    isDateInWeek
+    isDateInWeek,
+    isPickupDelayedByHoliday
 } = require('../app.js');
 
 describe('Weymouth Waste Pickup Tests', () => {
@@ -125,6 +126,53 @@ describe('Weymouth Waste Pickup Tests', () => {
             assert.strictEqual(isDateInWeek(new Date('2025-07-07'), week), true);
             assert.strictEqual(isDateInWeek(new Date('2025-07-13'), week), false);
             assert.strictEqual(isDateInWeek(new Date('2025-07-05'), week), false);
+        });
+    });
+    
+    describe('isPickupDelayedByHoliday', () => {
+        it('should not delay pickup for weekend holidays', () => {
+            const saturday = new Date('2025-07-05'); // Saturday
+            const sunday = new Date('2025-07-06'); // Sunday
+            
+            assert.strictEqual(isPickupDelayedByHoliday('Monday', saturday), false);
+            assert.strictEqual(isPickupDelayedByHoliday('Friday', sunday), false);
+        });
+        
+        it('should delay pickup if pickup is on or after holiday', () => {
+            const mondayHoliday = new Date('2025-07-07'); // Monday
+            
+            // Monday pickup on Monday holiday = delayed
+            assert.strictEqual(isPickupDelayedByHoliday('Monday', mondayHoliday), true);
+            
+            // Tuesday-Friday pickups after Monday holiday = delayed
+            assert.strictEqual(isPickupDelayedByHoliday('Tuesday', mondayHoliday), true);
+            assert.strictEqual(isPickupDelayedByHoliday('Wednesday', mondayHoliday), true);
+            assert.strictEqual(isPickupDelayedByHoliday('Thursday', mondayHoliday), true);
+            assert.strictEqual(isPickupDelayedByHoliday('Friday', mondayHoliday), true);
+        });
+        
+        it('should not delay pickup if pickup is before holiday', () => {
+            const wednesdayHoliday = new Date('2025-07-09'); // Wednesday
+            
+            // Monday and Tuesday pickups before Wednesday holiday = not delayed
+            assert.strictEqual(isPickupDelayedByHoliday('Monday', wednesdayHoliday), false);
+            assert.strictEqual(isPickupDelayedByHoliday('Tuesday', wednesdayHoliday), false);
+            
+            // Wednesday-Friday pickups on/after Wednesday holiday = delayed
+            assert.strictEqual(isPickupDelayedByHoliday('Wednesday', wednesdayHoliday), true);
+            assert.strictEqual(isPickupDelayedByHoliday('Thursday', wednesdayHoliday), true);
+            assert.strictEqual(isPickupDelayedByHoliday('Friday', wednesdayHoliday), true);
+        });
+        
+        it('should handle Friday holidays correctly', () => {
+            const fridayHoliday = new Date('2025-07-04'); // Friday
+            
+            // Only Friday pickup is delayed
+            assert.strictEqual(isPickupDelayedByHoliday('Monday', fridayHoliday), false);
+            assert.strictEqual(isPickupDelayedByHoliday('Tuesday', fridayHoliday), false);
+            assert.strictEqual(isPickupDelayedByHoliday('Wednesday', fridayHoliday), false);
+            assert.strictEqual(isPickupDelayedByHoliday('Thursday', fridayHoliday), false);
+            assert.strictEqual(isPickupDelayedByHoliday('Friday', fridayHoliday), true);
         });
     });
 });

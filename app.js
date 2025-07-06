@@ -360,37 +360,69 @@ function updatePickupDay(streetInfo) {
     document.getElementById('pickupDayText').className = 'status-text info';
 }
 
-function checkHolidayDelay() {
+function checkHolidayDelay(pickupDay) {
     const today = new Date();
     const thisWeek = getWeekDates(today);
     const nextWeek = getWeekDates(new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000));
     
-    let isDelayed = false;
-    let delayReason = '';
+    let holidayInfo = null;
     
-    for (const [date, holiday] of Object.entries(holidayData)) {
-        const holidayDate = new Date(date);
-        const dayOfWeek = holidayDate.getDay();
-        
-        if (dayOfWeek >= 1 && dayOfWeek <= 5) {
-            if (isDateInWeek(holidayDate, thisWeek) || isDateInWeek(holidayDate, nextWeek)) {
-                isDelayed = true;
-                delayReason = holiday;
-                break;
+    // Check both this week and next week for holidays
+    const weeksToCheck = [
+        { dates: thisWeek, label: 'this week' },
+        { dates: nextWeek, label: 'next week' }
+    ];
+    
+    for (const week of weeksToCheck) {
+        for (const [date, holiday] of Object.entries(holidayData)) {
+            const holidayDate = new Date(date);
+            const dayOfWeek = holidayDate.getDay();
+            
+            // Only weekday holidays (Mon-Fri) affect pickup
+            if (dayOfWeek >= 1 && dayOfWeek <= 5) {
+                if (isDateInWeek(holidayDate, week.dates)) {
+                    // Determine pickup day number (1=Monday, 5=Friday)
+                    const pickupDayNum = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'].indexOf(pickupDay) + 1;
+                    
+                    // Holiday affects pickup if pickup is on or after the holiday
+                    if (pickupDayNum >= dayOfWeek) {
+                        holidayInfo = {
+                            holiday: holiday,
+                            date: holidayDate,
+                            weekLabel: week.label,
+                            isDelayed: true
+                        };
+                    } else {
+                        holidayInfo = {
+                            holiday: holiday,
+                            date: holidayDate,
+                            weekLabel: week.label,
+                            isDelayed: false
+                        };
+                    }
+                    break;
+                }
             }
         }
+        if (holidayInfo) break;
     }
     
     const trashIcon = document.getElementById('trashIcon');
     const trashText = document.getElementById('trashText');
     
-    if (isDelayed) {
-        trashIcon.textContent = '⚠️';
-        trashText.textContent = `Trash pickup may be delayed due to ${delayReason}`;
-        trashText.className = 'status-text warning';
+    if (holidayInfo) {
+        if (holidayInfo.isDelayed) {
+            trashIcon.textContent = '⚠️';
+            trashText.textContent = `Trash pickup delayed by one day ${holidayInfo.weekLabel} due to ${holidayInfo.holiday}`;
+            trashText.className = 'status-text warning';
+        } else {
+            trashIcon.textContent = '✅';
+            trashText.textContent = `No delays ${holidayInfo.weekLabel} - ${holidayInfo.holiday} is after your pickup day`;
+            trashText.className = 'status-text yes';
+        }
     } else {
         trashIcon.textContent = '✅';
-        trashText.textContent = 'No trash pickup delays this week';
+        trashText.textContent = 'No trash pickup delays this week or next week';
         trashText.className = 'status-text yes';
     }
 }
@@ -550,6 +582,22 @@ window.addEventListener('appinstalled', () => {
 // Initialize when page loads
 window.addEventListener('load', init);
 
+// Helper function to determine if a holiday affects a specific pickup day
+function isPickupDelayedByHoliday(pickupDay, holidayDate) {
+    const holidayDayOfWeek = holidayDate.getDay();
+    
+    // Only weekday holidays (Mon-Fri) affect pickup
+    if (holidayDayOfWeek === 0 || holidayDayOfWeek === 6) {
+        return false;
+    }
+    
+    // Get pickup day number (1=Monday, 5=Friday)
+    const pickupDayNum = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'].indexOf(pickupDay) + 1;
+    
+    // Holiday affects pickup if pickup is on or after the holiday
+    return pickupDayNum >= holidayDayOfWeek;
+}
+
 // Export functions for testing
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
@@ -559,6 +607,7 @@ if (typeof module !== 'undefined' && module.exports) {
         getYardWasteMonday,
         findStreetInfo,
         getWeekDates,
-        isDateInWeek
+        isDateInWeek,
+        isPickupDelayedByHoliday
     };
 }
