@@ -854,11 +854,24 @@
 
         function checkYardWastePickup(zone) {
             const today = new Date();
-            const thisWeekStart = getWeekStart(today);
-            const thisWeekStr = formatDate(thisWeekStart);
+            const dayOfWeek = today.getDay();
+            
+            // Find this week's Monday (yard waste dates are Mondays)
+            const monday = new Date(today);
+            const daysUntilMonday = dayOfWeek === 0 ? 1 : (1 - dayOfWeek + 7) % 7;
+            
+            // If it's Sunday, we want tomorrow's Monday
+            // If it's Mon-Sat, we want this week's Monday
+            if (dayOfWeek === 0) {
+                monday.setDate(today.getDate() + 1);
+            } else {
+                monday.setDate(today.getDate() - (dayOfWeek - 1));
+            }
+            
+            const mondayStr = formatDate(monday);
             
             const zoneWeeks = yardWasteWeeks[zone] || [];
-            const hasYardWaste = zoneWeeks.includes(thisWeekStr);
+            const hasYardWaste = zoneWeeks.includes(mondayStr);
             
             const yardIcon = document.getElementById('yardIcon');
             const yardText = document.getElementById('yardText');
