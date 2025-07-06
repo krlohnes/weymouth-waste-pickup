@@ -17,6 +17,16 @@ npm start
 
 Then open `http://localhost:3000` in your browser.
 
+## Running Tests
+
+The project includes tests for the core logic, particularly the yard waste date calculations:
+
+```bash
+cd test
+npm install
+npm test
+```
+
 ## GitHub Pages
 
 This site is deployed on GitHub Pages and loads data from JSON files. The `local-server` directory is ignored by GitHub Pages deployment.

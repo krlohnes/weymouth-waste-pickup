@@ -1,0 +1,11 @@
+{
+  "name": "weymouth-waste-pickup-tests",
+  "version": "1.0.0",
+  "description": "Tests for Weymouth Waste Pickup",
+  "scripts": {
+    "test": "mocha app.test.js"
+  },
+  "devDependencies": {
+    "mocha": "^10.2.0"
+  }
+}

@@ -2,6 +2,10 @@
 local-server/node_modules/
 local-server/package-lock.json
 
+# Test dependencies
+test/node_modules/
+test/package-lock.json
+
 # macOS
 .DS_Store
 
