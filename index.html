@@ -510,6 +510,7 @@
                 
                 setupEventListeners();
                 loadSavedAddress();
+                checkPWASupport();
             }
         }
 
@@ -915,18 +916,37 @@
         }
 
         // PWA Install functionality
+        function checkPWASupport() {
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            const isInStandaloneMode = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+            
+            if (!isInStandaloneMode) {
+                if (isIOS) {
+                    // Show iOS-specific install button
+                    const installButton = document.getElementById('installButton');
+                    installButton.style.display = 'block';
+                    installButton.innerHTML = '📱 Add to Home Screen';
+                }
+            }
+        }
+        
         window.addEventListener('beforeinstallprompt', (e) => {
             // Prevent Chrome 67 and earlier from automatically showing the prompt
             e.preventDefault();
             // Stash the event so it can be triggered later
             deferredPrompt = e;
-            // Show the install button
+            // Show the install button for Android/Desktop
             document.getElementById('installButton').style.display = 'block';
         });
         
         function installPWA() {
-            if (deferredPrompt) {
-                // Show the install prompt
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            
+            if (isIOS) {
+                // Show iOS installation instructions
+                alert('To install this app on iOS:\n\n1. Tap the Share button (square with arrow)\n2. Scroll down and tap "Add to Home Screen"\n3. Tap "Add" in the top right');
+            } else if (deferredPrompt) {
+                // Show the install prompt for Android/Desktop
                 deferredPrompt.prompt();
                 // Wait for the user to respond to the prompt
                 deferredPrompt.userChoice.then((choiceResult) => {
