@@ -356,7 +356,7 @@ function updateMyAddress() {
 
 function updatePickupDay(streetInfo) {
     document.getElementById('pickupDayIcon').textContent = '📅';
-    document.getElementById('pickupDayText').textContent = `Pickup day: ${streetInfo.day} (Zone ${streetInfo.zone})`;
+    document.getElementById('pickupDayText').textContent = `Pickup: ${streetInfo.day} - Zone ${streetInfo.zone}`;
     document.getElementById('pickupDayText').className = 'status-text info';
 }
 
