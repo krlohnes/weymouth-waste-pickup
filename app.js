@@ -429,7 +429,12 @@ function handleDateChange() {
             selectedDate = new Date(dataYear, 11, 31);
         }
         
-        datePicker.value = formatDate(selectedDate);
+        // Use setTimeout to ensure the browser updates the display properly on mobile
+        setTimeout(() => {
+            datePicker.value = formatDate(selectedDate);
+        }, 10);
+        
+        return; // Exit early since we're handling the reset
     } else {
         const newDate = new Date(datePicker.value + 'T12:00:00'); // Add time to avoid timezone issues
         
