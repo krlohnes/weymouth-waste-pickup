@@ -437,6 +437,93 @@
                 font-size: 1.4rem;
             }
         }
+        
+        /* Modal styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            padding: 20px;
+            backdrop-filter: blur(4px);
+        }
+        
+        .modal {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+            text-align: center;
+        }
+        
+        .modal h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        
+        .modal-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+            padding: 12px;
+            background: rgba(102, 126, 234, 0.05);
+            border-radius: 8px;
+            text-align: left;
+        }
+        
+        .modal-step-number {
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+        
+        .modal-step-text {
+            color: #334155;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        .share-icon {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 4px;
+        }
+        
+        .modal-close {
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 24px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.2s ease;
+        }
+        
+        .modal-close:hover {
+            background: #5a67d8;
+        }
     </style>
 </head>
 <body>
@@ -508,6 +595,7 @@
         window.updateMyAddress = updateMyAddress;
         window.installPWA = installPWA;
         window.handleDateChange = handleDateChange;
+        window.closeIOSInstallModal = closeIOSInstallModal;
     </script>
 </body>
 </html>

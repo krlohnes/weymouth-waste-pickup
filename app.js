@@ -659,12 +659,54 @@ window.addEventListener('beforeinstallprompt', (e) => {
     }
 });
 
+function showIOSInstallModal() {
+    // Create iOS share icon as inline SVG
+    const shareIconSVG = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="12" height="9" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M8 1v9.5M5.5 3.5L8 1l2.5 2.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    
+    // Create modal HTML
+    const modalHTML = `
+        <div class="modal-overlay" id="iosInstallModal">
+            <div class="modal">
+                <h3>Add to Home Screen</h3>
+                <div class="modal-step">
+                    <div class="modal-step-number">1</div>
+                    <div class="modal-step-text">
+                        Tap the Share button <span class="share-icon">${shareIconSVG}</span> at the bottom of your screen
+                    </div>
+                </div>
+                <div class="modal-step">
+                    <div class="modal-step-number">2</div>
+                    <div class="modal-step-text">
+                        Scroll down and tap "Add to Home Screen"
+                    </div>
+                </div>
+                <div class="modal-step">
+                    <div class="modal-step-number">3</div>
+                    <div class="modal-step-text">
+                        Tap "Add" in the top right corner
+                    </div>
+                </div>
+                <button class="modal-close" onclick="closeIOSInstallModal()">Got it!</button>
+            </div>
+        </div>
+    `;
+    
+    // Add modal to page
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+}
+
+function closeIOSInstallModal() {
+    const modal = document.getElementById('iosInstallModal');
+    if (modal) {
+        modal.remove();
+    }
+}
+
 function installPWA() {
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
     
     if (isIOS) {
-        // Show iOS installation instructions
-        alert('To install this app on iOS:\n\n1. Tap the Share button (square with arrow)\n2. Scroll down and tap "Add to Home Screen"\n3. Tap "Add" in the top right');
+        showIOSInstallModal();
     } else if (deferredPrompt) {
         // Show the install prompt for Android/Desktop
         deferredPrompt.prompt();
