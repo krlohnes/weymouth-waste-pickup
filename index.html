@@ -65,14 +65,49 @@
             position: relative;
         }
         
-        label {
-            display: block;
+        .input-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 10px;
+        }
+        
+        label {
             font-weight: 600;
             color: #475569;
             font-size: 0.875rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            margin: 0;
+        }
+        
+        .date-picker-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .date-picker-label {
+            font-size: 0.75rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+        
+        input[type="date"] {
+            padding: 6px 8px;
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-family: inherit;
+            background: rgba(255, 255, 255, 0.95);
+            color: #1e293b;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        input[type="date"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.12);
         }
         
         input[type="text"] {
@@ -418,7 +453,13 @@
         </div>
         
         <div class="input-group" id="inputGroup" style="display: none;">
-            <label for="address">Enter Your Address:</label>
+            <div class="input-header">
+                <label for="address">Enter Your Address:</label>
+                <div class="date-picker-container">
+                    <span class="date-picker-label">Week of:</span>
+                    <input type="date" id="datePicker" min="2025-01-01" max="2025-12-31" onchange="handleDateChange()">
+                </div>
+            </div>
             <input type="text" id="address" placeholder="e.g., 123 Main Street" autocomplete="off">
             <div class="suggestions" id="suggestions"></div>
             <div class="saved-address" id="savedAddress"></div>
@@ -466,6 +507,7 @@
         window.checkPickup = checkPickup;
         window.updateMyAddress = updateMyAddress;
         window.installPWA = installPWA;
+        window.handleDateChange = handleDateChange;
     </script>
 </body>
 </html>

@@ -4,6 +4,7 @@ let holidayData = {};
 let yardWasteWeeks = {};
 let currentHighlight = -1;
 let deferredPrompt;
+let selectedDate = new Date(); // Current selected date for calculations
 
 // Load data from JSON files
 async function loadData() {
@@ -52,6 +53,7 @@ async function init() {
         document.getElementById('inputGroup').style.display = 'block';
         
         setupEventListeners();
+        initializeDatePicker();
         loadSavedAddress();
         checkPWASupport();
     }
@@ -372,8 +374,57 @@ function updatePickupDay(streetInfo, holidayInfo) {
     }
 }
 
-function checkHolidayDelay(pickupDay) {
+function initializeDatePicker() {
+    const datePicker = document.getElementById('datePicker');
+    
+    // Set bounds based on data year (2025)
+    const dataYear = 2025;
+    datePicker.min = `${dataYear}-01-01`;
+    datePicker.max = `${dataYear}-12-31`;
+    
+    // Set to current date if within bounds, otherwise set to start of data year
     const today = new Date();
+    if (today.getFullYear() === dataYear) {
+        datePicker.value = formatDate(selectedDate);
+    } else if (today.getFullYear() < dataYear) {
+        // If current date is before data year, set to start of data year
+        selectedDate = new Date(dataYear, 0, 1); // January 1st of data year
+        datePicker.value = formatDate(selectedDate);
+    } else {
+        // If current date is after data year, set to end of data year
+        selectedDate = new Date(dataYear, 11, 31); // December 31st of data year
+        datePicker.value = formatDate(selectedDate);
+    }
+}
+
+function handleDateChange() {
+    const datePicker = document.getElementById('datePicker');
+    const newDate = new Date(datePicker.value + 'T12:00:00'); // Add time to avoid timezone issues
+    
+    // Validate the date is within our data bounds
+    const dataYear = 2025;
+    if (newDate.getFullYear() !== dataYear) {
+        // Reset to a valid date if somehow an invalid date was selected
+        if (newDate.getFullYear() < dataYear) {
+            selectedDate = new Date(dataYear, 0, 1);
+        } else {
+            selectedDate = new Date(dataYear, 11, 31);
+        }
+        datePicker.value = formatDate(selectedDate);
+        return;
+    }
+    
+    selectedDate = newDate;
+    
+    // If results are visible, refresh them with the new date
+    const results = document.getElementById('results');
+    if (!results.classList.contains('hidden')) {
+        checkPickup();
+    }
+}
+
+function checkHolidayDelay(pickupDay) {
+    const today = selectedDate; // Use selected date instead of current date
     const thisWeek = getWeekDates(today);
     
     let holidayInfo = null;
@@ -448,7 +499,7 @@ function getYardWasteMonday(date) {
 }
 
 function checkYardWastePickup(zone) {
-    const today = new Date();
+    const today = selectedDate; // Use selected date instead of current date
     
     // Find this week's Monday (yard waste dates are Mondays)
     const monday = getYardWasteMonday(today);
