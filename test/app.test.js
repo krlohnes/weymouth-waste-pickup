@@ -7,7 +7,8 @@ const {
     findStreetInfo,
     getWeekDates,
     isDateInWeek,
-    isPickupDelayedByHoliday
+    isPickupDelayedByHoliday,
+    getShiftedPickupDay
 } = require('../app.js');
 
 describe('Weymouth Waste Pickup Tests', () => {
@@ -173,6 +174,65 @@ describe('Weymouth Waste Pickup Tests', () => {
             assert.strictEqual(isPickupDelayedByHoliday('Wednesday', fridayHoliday), false);
             assert.strictEqual(isPickupDelayedByHoliday('Thursday', fridayHoliday), false);
             assert.strictEqual(isPickupDelayedByHoliday('Friday', fridayHoliday), true);
+        });
+    });
+    
+    describe('getShiftedPickupDay', () => {
+        it('should shift weekdays to the next day', () => {
+            assert.strictEqual(getShiftedPickupDay('Monday'), 'Tuesday');
+            assert.strictEqual(getShiftedPickupDay('Tuesday'), 'Wednesday');
+            assert.strictEqual(getShiftedPickupDay('Wednesday'), 'Thursday');
+            assert.strictEqual(getShiftedPickupDay('Thursday'), 'Friday');
+        });
+        
+        it('should handle Friday as a corner case - shifts to Saturday', () => {
+            assert.strictEqual(getShiftedPickupDay('Friday'), 'Saturday');
+        });
+        
+        it('should handle weekend wrapping correctly', () => {
+            assert.strictEqual(getShiftedPickupDay('Saturday'), 'Sunday');
+            assert.strictEqual(getShiftedPickupDay('Sunday'), 'Monday');
+        });
+    });
+    
+    describe('Holiday Pickup Day Integration Tests', () => {
+        it('should correctly identify shifted pickup days for various scenarios', () => {
+            // Monday holiday affecting Tuesday pickup
+            const mondayHoliday = new Date('2025-07-07'); // Monday
+            assert.strictEqual(isPickupDelayedByHoliday('Tuesday', mondayHoliday), true);
+            assert.strictEqual(getShiftedPickupDay('Tuesday'), 'Wednesday');
+            
+            // Wednesday holiday affecting Friday pickup
+            const wednesdayHoliday = new Date('2025-07-09'); // Wednesday
+            assert.strictEqual(isPickupDelayedByHoliday('Friday', wednesdayHoliday), true);
+            assert.strictEqual(getShiftedPickupDay('Friday'), 'Saturday');
+        });
+        
+        it('should handle the critical Friday → Saturday shift', () => {
+            const thursdayHoliday = new Date('2025-07-10'); // Thursday
+            
+            // Friday pickup delayed by Thursday holiday
+            assert.strictEqual(isPickupDelayedByHoliday('Friday', thursdayHoliday), true);
+            // This moves Friday pickup to Saturday
+            assert.strictEqual(getShiftedPickupDay('Friday'), 'Saturday');
+        });
+        
+        it('should not shift pickup for holidays after pickup day', () => {
+            const fridayHoliday = new Date('2025-07-11'); // Friday
+            
+            // Monday-Thursday pickups before Friday holiday = not delayed
+            assert.strictEqual(isPickupDelayedByHoliday('Monday', fridayHoliday), false);
+            assert.strictEqual(isPickupDelayedByHoliday('Tuesday', fridayHoliday), false);
+            assert.strictEqual(isPickupDelayedByHoliday('Wednesday', fridayHoliday), false);
+            assert.strictEqual(isPickupDelayedByHoliday('Thursday', fridayHoliday), false);
+        });
+        
+        it('should handle same-day holiday and pickup correctly', () => {
+            const wednesdayHoliday = new Date('2025-07-09'); // Wednesday
+            
+            // Wednesday pickup on Wednesday holiday = delayed to Thursday
+            assert.strictEqual(isPickupDelayedByHoliday('Wednesday', wednesdayHoliday), true);
+            assert.strictEqual(getShiftedPickupDay('Wednesday'), 'Thursday');
         });
     });
 });

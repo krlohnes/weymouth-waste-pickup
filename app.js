@@ -319,8 +319,9 @@ function checkPickup() {
     document.getElementById('results').classList.remove('hidden');
     document.getElementById('results').classList.remove('error');
     
-    updatePickupDay(streetInfo);
-    checkHolidayDelay(streetInfo.day);
+    // Check for holiday delays first to get delay info
+    const holidayInfo = checkHolidayDelay(streetInfo.day);
+    updatePickupDay(streetInfo, holidayInfo);
     checkYardWastePickup(streetInfo.zone);
     
     // Update button visibility after successful lookup
@@ -354,10 +355,21 @@ function updateMyAddress() {
     updateSaveButtonVisibility();
 }
 
-function updatePickupDay(streetInfo) {
-    document.getElementById('pickupDayIcon').textContent = '📅';
-    document.getElementById('pickupDayText').textContent = `Pickup: ${streetInfo.day} - Zone ${streetInfo.zone}`;
-    document.getElementById('pickupDayText').className = 'status-text info';
+function updatePickupDay(streetInfo, holidayInfo) {
+    const pickupDayIcon = document.getElementById('pickupDayIcon');
+    const pickupDayText = document.getElementById('pickupDayText');
+    
+    if (holidayInfo && holidayInfo.isDelayed) {
+        const delayedDay = getShiftedPickupDay(streetInfo.day);
+        
+        pickupDayIcon.textContent = '⚠️';
+        pickupDayText.textContent = `Pickup day: ${delayedDay} due to holiday (normally ${streetInfo.day})`;
+        pickupDayText.className = 'status-text warning';
+    } else {
+        pickupDayIcon.textContent = '📅';
+        pickupDayText.textContent = `Pickup day: ${streetInfo.day}`;
+        pickupDayText.className = 'status-text info';
+    }
 }
 
 function checkHolidayDelay(pickupDay) {
@@ -425,6 +437,9 @@ function checkHolidayDelay(pickupDay) {
         trashText.textContent = 'No trash pickup delays this week or next week';
         trashText.className = 'status-text yes';
     }
+    
+    // Return the holiday info for use in pickup day display
+    return holidayInfo;
 }
 
 // Core yard waste calculation functions (exported for testing)
@@ -598,6 +613,13 @@ function isPickupDelayedByHoliday(pickupDay, holidayDate) {
     return pickupDayNum >= holidayDayOfWeek;
 }
 
+// Helper function to get the shifted pickup day
+function getShiftedPickupDay(normalDay) {
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const normalDayIndex = days.indexOf(normalDay);
+    return days[(normalDayIndex + 1) % 7];
+}
+
 // Export functions for testing
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
@@ -608,6 +630,7 @@ if (typeof module !== 'undefined' && module.exports) {
         findStreetInfo,
         getWeekDates,
         isDateInWeek,
-        isPickupDelayedByHoliday
+        isPickupDelayedByHoliday,
+        getShiftedPickupDay
     };
 }
