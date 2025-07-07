@@ -375,48 +375,37 @@ function updatePickupDay(streetInfo, holidayInfo) {
 function checkHolidayDelay(pickupDay) {
     const today = new Date();
     const thisWeek = getWeekDates(today);
-    const nextWeek = getWeekDates(new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000));
     
     let holidayInfo = null;
     
-    // Check both this week and next week for holidays
-    const weeksToCheck = [
-        { dates: thisWeek, label: 'this week' },
-        { dates: nextWeek, label: 'next week' }
-    ];
-    
-    for (const week of weeksToCheck) {
-        for (const [date, holiday] of Object.entries(holidayData)) {
-            const holidayDate = new Date(date);
-            const dayOfWeek = holidayDate.getDay();
-            
-            // Only weekday holidays (Mon-Fri) affect pickup
-            if (dayOfWeek >= 1 && dayOfWeek <= 5) {
-                if (isDateInWeek(holidayDate, week.dates)) {
-                    // Determine pickup day number (1=Monday, 5=Friday)
-                    const pickupDayNum = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'].indexOf(pickupDay) + 1;
-                    
-                    // Holiday affects pickup if pickup is on or after the holiday
-                    if (pickupDayNum >= dayOfWeek) {
-                        holidayInfo = {
-                            holiday: holiday,
-                            date: holidayDate,
-                            weekLabel: week.label,
-                            isDelayed: true
-                        };
-                    } else {
-                        holidayInfo = {
-                            holiday: holiday,
-                            date: holidayDate,
-                            weekLabel: week.label,
-                            isDelayed: false
-                        };
-                    }
-                    break;
+    // Check only this week for holidays
+    for (const [date, holiday] of Object.entries(holidayData)) {
+        const holidayDate = new Date(date);
+        const dayOfWeek = holidayDate.getDay();
+        
+        // Only weekday holidays (Mon-Fri) affect pickup
+        if (dayOfWeek >= 1 && dayOfWeek <= 5) {
+            if (isDateInWeek(holidayDate, thisWeek)) {
+                // Determine pickup day number (1=Monday, 5=Friday)
+                const pickupDayNum = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'].indexOf(pickupDay) + 1;
+                
+                // Holiday affects pickup if pickup is on or after the holiday
+                if (pickupDayNum >= dayOfWeek) {
+                    holidayInfo = {
+                        holiday: holiday,
+                        date: holidayDate,
+                        isDelayed: true
+                    };
+                } else {
+                    holidayInfo = {
+                        holiday: holiday,
+                        date: holidayDate,
+                        isDelayed: false
+                    };
                 }
+                break;
             }
         }
-        if (holidayInfo) break;
     }
     
     const trashIcon = document.getElementById('trashIcon');
@@ -425,16 +414,16 @@ function checkHolidayDelay(pickupDay) {
     if (holidayInfo) {
         if (holidayInfo.isDelayed) {
             trashIcon.textContent = '⚠️';
-            trashText.textContent = `Trash pickup delayed by one day ${holidayInfo.weekLabel} due to ${holidayInfo.holiday}`;
+            trashText.textContent = `Trash pickup delayed by one day this week due to ${holidayInfo.holiday}`;
             trashText.className = 'status-text warning';
         } else {
             trashIcon.textContent = '✅';
-            trashText.textContent = `No delays ${holidayInfo.weekLabel} - ${holidayInfo.holiday} is after your pickup day`;
+            trashText.textContent = `No delays this week - ${holidayInfo.holiday} is after your pickup day`;
             trashText.className = 'status-text yes';
         }
     } else {
         trashIcon.textContent = '✅';
-        trashText.textContent = 'No trash pickup delays this week or next week';
+        trashText.textContent = 'No trash pickup delays this week';
         trashText.className = 'status-text yes';
     }
     
