@@ -6,6 +6,13 @@ let currentHighlight = -1;
 let deferredPrompt;
 let selectedDate = new Date(); // Current selected date for calculations
 
+// Yard waste season constants
+const YARD_WASTE_START_DATE = new Date('2025-04-07');
+const YARD_WASTE_END_DATE = new Date('2025-12-08');
+const YARD_WASTE_START_TEXT = 'April 7th';
+const YARD_WASTE_END_TEXT = 'December 8th';
+const YARD_WASTE_YEAR = '2025';
+
 // Load data from JSON files
 async function loadData() {
     try {
@@ -54,6 +61,7 @@ async function init() {
         
         setupEventListeners();
         initializeDatePicker();
+        updateYardWasteSubtitle();
         loadSavedAddress();
         checkPWASupport();
     }
@@ -374,11 +382,18 @@ function updatePickupDay(streetInfo, holidayInfo) {
     }
 }
 
+function updateYardWasteSubtitle() {
+    const subtitle = document.querySelector('.subtitle');
+    if (subtitle) {
+        subtitle.textContent = `🍃 Yard Waste Season: ${YARD_WASTE_START_TEXT} - ${YARD_WASTE_END_TEXT}, ${YARD_WASTE_YEAR}`;
+    }
+}
+
 function initializeDatePicker() {
     const datePicker = document.getElementById('datePicker');
     
-    // Set bounds based on data year (2025)
-    const dataYear = 2025;
+    // Set bounds based on data year
+    const dataYear = parseInt(YARD_WASTE_YEAR);
     datePicker.min = `${dataYear}-01-01`;
     datePicker.max = `${dataYear}-12-31`;
     
@@ -402,7 +417,7 @@ function handleDateChange() {
     const newDate = new Date(datePicker.value + 'T12:00:00'); // Add time to avoid timezone issues
     
     // Validate the date is within our data bounds
-    const dataYear = 2025;
+    const dataYear = parseInt(YARD_WASTE_YEAR);
     if (newDate.getFullYear() !== dataYear) {
         // Reset to a valid date if somehow an invalid date was selected
         if (newDate.getFullYear() < dataYear) {
@@ -501,15 +516,28 @@ function getYardWasteMonday(date) {
 function checkYardWastePickup(zone) {
     const today = selectedDate; // Use selected date instead of current date
     
-    // Find this week's Monday (yard waste dates are Mondays)
+    const yardIcon = document.getElementById('yardIcon');
+    const yardText = document.getElementById('yardText');
+    
+    // If outside yard waste season, show appropriate message
+    if (today < YARD_WASTE_START_DATE) {
+        yardIcon.textContent = '❄️';
+        yardText.textContent = `Yard waste season starts ${YARD_WASTE_START_TEXT} (Zone ${zone})`;
+        yardText.className = 'status-text info';
+        return;
+    } else if (today > YARD_WASTE_END_DATE) {
+        yardIcon.textContent = '❄️';
+        yardText.textContent = `Yard waste season ended ${YARD_WASTE_END_TEXT} (Zone ${zone})`;
+        yardText.className = 'status-text info';
+        return;
+    }
+    
+    // Within season - check for pickup
     const monday = getYardWasteMonday(today);
     const mondayStr = formatDate(monday);
     
     const zoneWeeks = yardWasteWeeks[zone] || [];
     const hasYardWaste = zoneWeeks.includes(mondayStr);
-    
-    const yardIcon = document.getElementById('yardIcon');
-    const yardText = document.getElementById('yardText');
     
     if (hasYardWaste) {
         yardIcon.textContent = '🍃';
