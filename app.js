@@ -414,22 +414,40 @@ function initializeDatePicker() {
 
 function handleDateChange() {
     const datePicker = document.getElementById('datePicker');
-    const newDate = new Date(datePicker.value + 'T12:00:00'); // Add time to avoid timezone issues
     
-    // Validate the date is within our data bounds
-    const dataYear = parseInt(YARD_WASTE_YEAR);
-    if (newDate.getFullYear() !== dataYear) {
-        // Reset to a valid date if somehow an invalid date was selected
-        if (newDate.getFullYear() < dataYear) {
+    // If date picker is cleared/reset, set to current date
+    if (!datePicker.value) {
+        const today = new Date();
+        const dataYear = parseInt(YARD_WASTE_YEAR);
+        
+        // Set to current date if within bounds, otherwise set to appropriate boundary
+        if (today.getFullYear() === dataYear) {
+            selectedDate = today;
+        } else if (today.getFullYear() < dataYear) {
             selectedDate = new Date(dataYear, 0, 1);
         } else {
             selectedDate = new Date(dataYear, 11, 31);
         }
+        
         datePicker.value = formatDate(selectedDate);
-        return;
+    } else {
+        const newDate = new Date(datePicker.value + 'T12:00:00'); // Add time to avoid timezone issues
+        
+        // Validate the date is within our data bounds
+        const dataYear = parseInt(YARD_WASTE_YEAR);
+        if (newDate.getFullYear() !== dataYear) {
+            // Reset to a valid date if somehow an invalid date was selected
+            if (newDate.getFullYear() < dataYear) {
+                selectedDate = new Date(dataYear, 0, 1);
+            } else {
+                selectedDate = new Date(dataYear, 11, 31);
+            }
+            datePicker.value = formatDate(selectedDate);
+            return;
+        }
+        
+        selectedDate = newDate;
     }
-    
-    selectedDate = newDate;
     
     // If results are visible, refresh them with the new date
     const results = document.getElementById('results');
