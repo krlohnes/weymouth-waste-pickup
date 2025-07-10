@@ -30,3 +30,7 @@ npm test
 ## GitHub Pages
 
 This site is deployed on GitHub Pages and loads data from JSON files. The `local-server` directory is ignored by GitHub Pages deployment.
+
+## Data Notes
+
+**16 Volusia Rd**: The trash day for this address is unknown due to incorrect data in the 2025 PDF (listed as "0"). Currently set as Wednesday as a placeholder. Need to research past years' data to determine the correct trash day.

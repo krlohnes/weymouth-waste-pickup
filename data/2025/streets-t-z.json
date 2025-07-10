@@ -1,118 +1,802 @@
 {
   "streets": [
-    { "street": "TAFT RD", "low": 11, "high": 90, "day": "Friday", "zone": "B" },
-    { "street": "TAMARACK TRAIL", "low": 6, "high": 71, "day": "Tuesday", "zone": "A" },
-    { "street": "TAMBURLANE RIDGE", "low": 20, "high": 50, "day": "Monday", "zone": "B" },
-    { "street": "TANNER TERR", "low": 10, "high": 41, "day": "Monday", "zone": "B" },
-    { "street": "TAYLA DRIVE", "low": 14, "high": 44, "day": "Monday", "zone": "A" },
-    { "street": "TEE TIME LANE", "low": 3, "high": 16, "day": "Monday", "zone": "A" },
-    { "street": "THAYER AVE", "low": 10, "high": 51, "day": "Tuesday", "zone": "B" },
-    { "street": "THICKET ST", "low": 6, "high": 535, "day": "Monday", "zone": "B" },
-    { "street": "THIRD ST", "low": 5, "high": 28, "day": "Friday", "zone": "B" },
-    { "street": "THOMAS RD", "low": 14, "high": 71, "day": "Monday", "zone": "B" },
-    { "street": "THOMPSON RD", "low": 15, "high": 136, "day": "Thursday", "zone": "B" },
-    { "street": "THORNDYKE AVE", "low": 11, "high": 19, "day": "Friday", "zone": "B" },
-    { "street": "TICK TOCK LANE", "low": 12, "high": 52, "day": "Friday", "zone": "B" },
-    { "street": "TIGER TERRACE", "low": 5, "high": 18, "day": "Monday", "zone": "A" },
-    { "street": "TILDEN CIR", "low": 9, "high": 28, "day": "Tuesday", "zone": "A" },
-    { "street": "TILDEN RD", "low": 16, "high": 106, "day": "Tuesday", "zone": "A" },
-    { "street": "TIRRELL ST", "low": 15, "high": 29, "day": "Tuesday", "zone": "B" },
-    { "street": "TODD LN", "low": 8, "high": 42, "day": "Tuesday", "zone": "A" },
-    { "street": "TOMMY MARKS WAY", "low": 8, "high": 80, "day": "Monday", "zone": "B" },
-    { "street": "TORREY ST", "low": 19, "high": 110, "day": "Monday", "zone": "A" },
-    { "street": "TOWER AVE", "low": 12, "high": 102, "day": "Monday", "zone": "A" },
-    { "street": "TRAFALGAR CRT", "low": 10, "high": 63, "day": "Monday", "zone": "A" },
-    { "street": "TREFTON AVE", "low": 89, "high": 140, "day": "Friday", "zone": "B" },
-    { "street": "TREMONT ST", "low": 11, "high": 30, "day": "Friday", "zone": "B" },
-    { "street": "TWILIGHT PTH", "low": 8, "high": 39, "day": "Wednesday", "zone": "A" },
-    { "street": "UNICORN AVE", "low": 1, "high": 64, "day": "Thursday", "zone": "A" },
-    { "street": "UNION CIR", "low": 6, "high": 20, "day": "Monday", "zone": "A" },
-    { "street": "UNION ST", "low": 41, "high": 645, "day": "Monday", "zone": "A" },
-    { "street": "UPLAND RD", "low": 8, "high": 29, "day": "Tuesday", "zone": "A" },
-    { "street": "VALLEY RD", "low": 4, "high": 24, "day": "Wednesday", "zone": "B" },
-    { "street": "VANNESS RD", "low": 1, "high": 40, "day": "Friday", "zone": "A" },
-    { "street": "VEDA COURT", "low": 4, "high": 33, "day": "Monday", "zone": "B" },
-    { "street": "VEDA RD", "low": 8, "high": 45, "day": "Monday", "zone": "B" },
-    { "street": "VEGA ST", "low": 5, "high": 34, "day": "Monday", "zone": "B" },
-    { "street": "VENUS ST", "low": 14, "high": 39, "day": "Monday", "zone": "B" },
-    { "street": "VERNDALE RD", "low": 5, "high": 22, "day": "Monday", "zone": "A" },
-    { "street": "VERNON ST", "low": 21, "high": 37, "day": "Thursday", "zone": "A" },
-    { "street": "VERONICA LN", "low": 5, "high": 75, "day": "Wednesday", "zone": "A" },
-    { "street": "VICKI RD", "low": 5, "high": 20, "day": "Wednesday", "zone": "A" },
-    { "street": "VICTORIA AVE", "low": 2, "high": 35, "day": "Monday", "zone": "A" },
-    { "street": "VILLAGE RD", "low": 10, "high": 76, "day": "Wednesday", "zone": "A" },
-    { "street": "VINE ST", "low": 9, "high": 94, "day": "Friday", "zone": "B" },
-    { "street": "VINSON ST", "low": 17, "high": 71, "day": "Monday", "zone": "A" },
-    { "street": "VIOLET ST", "low": 20, "high": 20, "day": "Friday", "zone": "B" },
-    { "street": "VOLUSIA RD", "low": 10, "high": 12, "day": "Wednesday", "zone": "A" },
-    { "street": "VOLUSIA RD", "low": 16, "high": 16, "day": "Wednesday", "zone": "A" },
-    { "street": "WACHUSETT RD", "low": 15, "high": 65, "day": "Friday", "zone": "A" },
-    { "street": "WADAGA RD", "low": 5, "high": 27, "day": "Friday", "zone": "B" },
-    { "street": "WADSWORTH ST", "low": 10, "high": 28, "day": "Friday", "zone": "B" },
-    { "street": "WAINWRIGHT AVE", "low": 14, "high": 96, "day": "Monday", "zone": "A" },
-    { "street": "WALES AVE", "low": 15, "high": 25, "day": "Monday", "zone": "A" },
-    { "street": "WALKER ST", "low": 4, "high": 25, "day": "Friday", "zone": "B" },
-    { "street": "WALMSLEY LN", "low": 15, "high": 15, "day": "Wednesday", "zone": "B" },
-    { "street": "WALNUT AVE", "low": 11, "high": 34, "day": "Tuesday", "zone": "B" },
-    { "street": "WALTON ST", "low": 84, "high": 145, "day": "Wednesday", "zone": "A" },
-    { "street": "WAMPUM ST", "low": 14, "high": 102, "day": "Monday", "zone": "B" },
-    { "street": "WASHBURN ST", "low": 7, "high": 44, "day": "Wednesday", "zone": "A" },
-    { "street": "WASHINGTON ST", "low": 73, "high": 345, "day": "Tuesday", "zone": "B" },
-    { "street": "WASHINGTON ST", "low": 156, "high": 350, "day": "Friday", "zone": "B" },
-    { "street": "WASHINGTON ST", "low": 560, "high": 1340, "day": "Wednesday", "zone": "A" },
-    { "street": "WASHINGTON ST", "low": 839, "high": 1315, "day": "Tuesday", "zone": "A" },
-    { "street": "WATER ST", "low": 6, "high": 38, "day": "Wednesday", "zone": "A" },
-    { "street": "WATERFORD DR", "low": 5, "high": 84, "day": "Tuesday", "zone": "B" },
-    { "street": "WEAVER RD", "low": 15, "high": 92, "day": "Tuesday", "zone": "A" },
-    { "street": "WEAVER RD", "low": 80, "high": 84, "day": "Friday", "zone": "A" },
-    { "street": "WEBB ST", "low": 11, "high": 168, "day": "Friday", "zone": "B" },
-    { "street": "WEBSTER ST", "low": 5, "high": 42, "day": "Monday", "zone": "B" },
-    { "street": "WELLAND CIR", "low": 2, "high": 32, "day": "Tuesday", "zone": "B" },
-    { "street": "WELLAND RD", "low": 10, "high": 70, "day": "Tuesday", "zone": "B" },
-    { "street": "WESSAGUSSET AVENUE", "low": 137, "high": 137, "day": "Friday", "zone": "B" },
-    { "street": "WESSAGUSSET RD", "low": 3, "high": 207, "day": "Friday", "zone": "B" },
-    { "street": "WESSAGUSSET RD", "low": 220, "high": 267, "day": "Thursday", "zone": "B" },
-    { "street": "WEST LAKE DR", "low": 23, "high": 155, "day": "Wednesday", "zone": "B" },
-    { "street": "WEST LAKE DR EAST", "low": 14, "high": 27, "day": "Wednesday", "zone": "B" },
-    { "street": "WEST ST", "low": 12, "high": 358, "day": "Monday", "zone": "B" },
-    { "street": "WEST ST", "low": 19, "high": 353, "day": "Tuesday", "zone": "B" },
-    { "street": "WESTERN AVE", "low": 9, "high": 104, "day": "Monday", "zone": "B" },
-    { "street": "WESTMINSTER RD", "low": 15, "high": 283, "day": "Wednesday", "zone": "A" },
-    { "street": "WEYBOSSET ST", "low": 9, "high": 72, "day": "Friday", "zone": "B" },
-    { "street": "WEYFAIR PATH", "low": 12, "high": 50, "day": "Tuesday", "zone": "A" },
-    { "street": "WEYHAM RD", "low": 7, "high": 126, "day": "Thursday", "zone": "B" },
-    { "street": "WHARF ST", "low": 19, "high": 29, "day": "Thursday", "zone": "A" },
-    { "street": "WHIPPLE CIR", "low": 11, "high": 19, "day": "Monday", "zone": "B" },
-    { "street": "WHIPPLE ST", "low": 11, "high": 163, "day": "Monday", "zone": "B" },
-    { "street": "WHITCOMB TER", "low": 9, "high": 30, "day": "Monday", "zone": "B" },
-    { "street": "WHITE OAKS LANE", "low": 28, "high": 28, "day": "Tuesday", "zone": "A" },
-    { "street": "WHITE ST", "low": 11, "high": 207, "day": "Monday", "zone": "A" },
-    { "street": "WHITMAN ST", "low": 10, "high": 81, "day": "Wednesday", "zone": "A" },
-    { "street": "WILBUR ST", "low": 20, "high": 36, "day": "Monday", "zone": "A" },
-    { "street": "WILDWOOD RD", "low": 11, "high": 24, "day": "Wednesday", "zone": "A" },
-    { "street": "WILLIAMS AVE", "low": 12, "high": 25, "day": "Monday", "zone": "A" },
-    { "street": "WILLIAMS CRT", "low": 8, "high": 8, "day": "Friday", "zone": "B" },
-    { "street": "WILLOW AVE", "low": 4, "high": 48, "day": "Friday", "zone": "B" },
-    { "street": "WILLOW LN", "low": 5, "high": 28, "day": "Wednesday", "zone": "A" },
-    { "street": "WILSON AVE", "low": 12, "high": 117, "day": "Friday", "zone": "B" },
-    { "street": "WINDSOR RD", "low": 5, "high": 105, "day": "Tuesday", "zone": "B" },
-    { "street": "WINGATE RD", "low": 6, "high": 111, "day": "Thursday", "zone": "A" },
-    { "street": "WINONA WAY", "low": 6, "high": 22, "day": "Friday", "zone": "A" },
-    { "street": "WINSTEAD RD", "low": 0, "high": 59, "day": "Thursday", "zone": "A" },
-    { "street": "WINTER CRT", "low": 12, "high": 59, "day": "Tuesday", "zone": "A" },
-    { "street": "WINTER ST", "low": 38, "high": 45, "day": "Tuesday", "zone": "A" },
-    { "street": "WITUWAMAT RD", "low": 8, "high": 81, "day": "Friday", "zone": "B" },
-    { "street": "WOLCOTT ST", "low": 12, "high": 20, "day": "Thursday", "zone": "B" },
-    { "street": "WOOD AVE", "low": 12, "high": 55, "day": "Wednesday", "zone": "A" },
-    { "street": "WOODBINE RD", "low": 4, "high": 35, "day": "Wednesday", "zone": "A" },
-    { "street": "WOODLAND DR", "low": 11, "high": 67, "day": "Monday", "zone": "B" },
-    { "street": "WOODMAN CIR", "low": 15, "high": 55, "day": "Tuesday", "zone": "B" },
-    { "street": "WOODSIDE PATH", "low": 1, "high": 49, "day": "Tuesday", "zone": "A" },
-    { "street": "WORCESTER TERRACE", "low": 9, "high": 9, "day": "Friday", "zone": "B" },
-    { "street": "WORONOCO RD", "low": 12, "high": 40, "day": "Friday", "zone": "A" },
-    { "street": "WORSTER TERRACE", "low": 17, "high": 17, "day": "Friday", "zone": "B" },
-    { "street": "WORTHEN AVE", "low": 5, "high": 175, "day": "Tuesday", "zone": "B" },
-    { "street": "WRIGHT ST", "low": 9, "high": 54, "day": "Monday", "zone": "A" },
-    { "street": "WYCLIFFE ST", "low": 10, "high": 15, "day": "Tuesday", "zone": "A" }
+    {
+      "street": "TAFT RD",
+      "low": 11,
+      "high": 90,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "TAMARACK TRAIL",
+      "low": 6,
+      "high": 71,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "TAMBURLANE RIDGE",
+      "low": 20,
+      "high": 50,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "TANNER TERR",
+      "low": 10,
+      "high": 41,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "TAYLA DRIVE",
+      "low": 14,
+      "high": 44,
+      "day": "Monday",
+      "zone": "A"
+    },
+    {
+      "street": "TEE TIME LANE",
+      "low": 3,
+      "high": 16,
+      "day": "Monday",
+      "zone": "A"
+    },
+    {
+      "street": "THAYER AVE",
+      "low": 10,
+      "high": 51,
+      "day": "Tuesday",
+      "zone": "B"
+    },
+    {
+      "street": "THICKET ST",
+      "low": 6,
+      "high": 535,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "THIRD ST",
+      "low": 5,
+      "high": 28,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "THOMAS RD",
+      "low": 14,
+      "high": 71,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "THOMPSON RD",
+      "low": 15,
+      "high": 136,
+      "day": "Thursday",
+      "zone": "B"
+    },
+    {
+      "street": "THORNDYKE AVE",
+      "low": 11,
+      "high": 19,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "TICK TOCK LANE",
+      "low": 12,
+      "high": 52,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "TIGER TERRACE",
+      "low": 5,
+      "high": 18,
+      "day": "Monday",
+      "zone": "A"
+    },
+    {
+      "street": "TILDEN CIR",
+      "low": 9,
+      "high": 28,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "TILDEN RD",
+      "low": 16,
+      "high": 106,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "TIRRELL ST",
+      "low": 15,
+      "high": 29,
+      "day": "Tuesday",
+      "zone": "B"
+    },
+    {
+      "street": "TODD LN",
+      "low": 8,
+      "high": 42,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "TOMMY MARKS WAY",
+      "low": 8,
+      "high": 80,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "TORREY ST",
+      "low": 19,
+      "high": 110,
+      "day": "Monday",
+      "zone": "A"
+    },
+    {
+      "street": "TOWER AVE",
+      "low": 12,
+      "high": 102,
+      "day": "Monday",
+      "zone": "A"
+    },
+    {
+      "street": "TRAFALGAR CRT",
+      "low": 10,
+      "high": 63,
+      "day": "Monday",
+      "zone": "A"
+    },
+    {
+      "street": "TREFTON AVE",
+      "low": 89,
+      "high": 140,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "TREMONT ST",
+      "low": 11,
+      "high": 30,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "TWILIGHT PTH",
+      "low": 8,
+      "high": 39,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "UNICORN AVE",
+      "low": 1,
+      "high": 64,
+      "day": "Thursday",
+      "zone": "A"
+    },
+    {
+      "street": "UNION CIR",
+      "low": 6,
+      "high": 20,
+      "day": "Monday",
+      "zone": "A"
+    },
+    {
+      "street": "UNION ST",
+      "low": 41,
+      "high": 645,
+      "day": "Monday",
+      "zone": "A"
+    },
+    {
+      "street": "UPLAND RD",
+      "low": 8,
+      "high": 29,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "VALLEY RD",
+      "low": 4,
+      "high": 24,
+      "day": "Wednesday",
+      "zone": "B"
+    },
+    {
+      "street": "VANNESS RD",
+      "low": 1,
+      "high": 40,
+      "day": "Friday",
+      "zone": "A"
+    },
+    {
+      "street": "VEDA COURT",
+      "low": 4,
+      "high": 33,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "VEDA RD",
+      "low": 8,
+      "high": 45,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "VEGA ST",
+      "low": 5,
+      "high": 34,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "VENUS ST",
+      "low": 14,
+      "high": 39,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "VERNDALE RD",
+      "low": 5,
+      "high": 22,
+      "day": "Monday",
+      "zone": "A"
+    },
+    {
+      "street": "VERNON ST",
+      "low": 21,
+      "high": 37,
+      "day": "Thursday",
+      "zone": "A"
+    },
+    {
+      "street": "VERONICA LN",
+      "low": 5,
+      "high": 75,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "VICKI RD",
+      "low": 5,
+      "high": 20,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "VICTORIA AVE",
+      "low": 2,
+      "high": 35,
+      "day": "Monday",
+      "zone": "A"
+    },
+    {
+      "street": "VILLAGE RD",
+      "low": 10,
+      "high": 76,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "VINE ST",
+      "low": 9,
+      "high": 94,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "VINSON ST",
+      "low": 17,
+      "high": 71,
+      "day": "Monday",
+      "zone": "A"
+    },
+    {
+      "street": "VIOLET ST",
+      "low": 20,
+      "high": 20,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "VOLUSIA RD",
+      "low": 10,
+      "high": 12,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "VOLUSIA RD",
+      "low": 16,
+      "high": 16,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "WACHUSETT RD",
+      "low": 15,
+      "high": 65,
+      "day": "Friday",
+      "zone": "A"
+    },
+    {
+      "street": "WADAGA RD",
+      "low": 5,
+      "high": 27,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "WADSWORTH ST",
+      "low": 10,
+      "high": 28,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "WAINWRIGHT AVE",
+      "low": 14,
+      "high": 96,
+      "day": "Monday",
+      "zone": "A"
+    },
+    {
+      "street": "WALES AVE",
+      "low": 15,
+      "high": 25,
+      "day": "Monday",
+      "zone": "A"
+    },
+    {
+      "street": "WALKER ST",
+      "low": 4,
+      "high": 25,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "WALMSLEY LN",
+      "low": 15,
+      "high": 15,
+      "day": "Wednesday",
+      "zone": "B"
+    },
+    {
+      "street": "WALNUT AVE",
+      "low": 11,
+      "high": 34,
+      "day": "Tuesday",
+      "zone": "B"
+    },
+    {
+      "street": "WALTON ST",
+      "low": 84,
+      "high": 145,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "WAMPUM ST",
+      "low": 14,
+      "high": 102,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "WASHBURN ST",
+      "low": 7,
+      "high": 44,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "WASHINGTON ST",
+      "low": 73,
+      "high": 345,
+      "day": "Tuesday",
+      "zone": "B"
+    },
+    {
+      "street": "WASHINGTON ST",
+      "low": 156,
+      "high": 350,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "WASHINGTON ST",
+      "low": 560,
+      "high": 1340,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "WASHINGTON ST",
+      "low": 839,
+      "high": 1315,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "WATER ST",
+      "low": 6,
+      "high": 38,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "WATERFORD DR",
+      "low": 5,
+      "high": 84,
+      "day": "Tuesday",
+      "zone": "B"
+    },
+    {
+      "street": "WEAVER RD",
+      "low": 15,
+      "high": 92,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "WEAVER RD",
+      "low": 80,
+      "high": 84,
+      "day": "Friday",
+      "zone": "A"
+    },
+    {
+      "street": "WEBB ST",
+      "low": 11,
+      "high": 168,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "WEBSTER ST",
+      "low": 5,
+      "high": 42,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "WELLAND CIR",
+      "low": 2,
+      "high": 32,
+      "day": "Tuesday",
+      "zone": "B"
+    },
+    {
+      "street": "WELLAND RD",
+      "low": 10,
+      "high": 70,
+      "day": "Tuesday",
+      "zone": "B"
+    },
+    {
+      "street": "WESSAGUSSET AVENUE",
+      "low": 137,
+      "high": 137,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "WESSAGUSSET RD",
+      "low": 3,
+      "high": 207,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "WESSAGUSSET RD",
+      "low": 220,
+      "high": 267,
+      "day": "Thursday",
+      "zone": "B"
+    },
+    {
+      "street": "WEST LAKE DR",
+      "low": 23,
+      "high": 155,
+      "day": "Wednesday",
+      "zone": "B"
+    },
+    {
+      "street": "WEST LAKE DR EAST",
+      "low": 14,
+      "high": 27,
+      "day": "Wednesday",
+      "zone": "B"
+    },
+    {
+      "street": "WEST ST",
+      "low": 12,
+      "high": 358,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "WEST ST",
+      "low": 19,
+      "high": 353,
+      "day": "Tuesday",
+      "zone": "B"
+    },
+    {
+      "street": "WESTERN AVE",
+      "low": 9,
+      "high": 104,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "WESTMINSTER RD",
+      "low": 15,
+      "high": 283,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "WEYBOSSET ST",
+      "low": 9,
+      "high": 72,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "WEYFAIR PATH",
+      "low": 12,
+      "high": 50,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "WEYHAM RD",
+      "low": 7,
+      "high": 126,
+      "day": "Thursday",
+      "zone": "B"
+    },
+    {
+      "street": "WHARF ST",
+      "low": 19,
+      "high": 29,
+      "day": "Thursday",
+      "zone": "A"
+    },
+    {
+      "street": "WHIPPLE CIR",
+      "low": 11,
+      "high": 19,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "WHIPPLE ST",
+      "low": 11,
+      "high": 163,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "WHITCOMB TER",
+      "low": 9,
+      "high": 30,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "WHITE OAKS LANE",
+      "low": 28,
+      "high": 28,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "WHITE ST",
+      "low": 11,
+      "high": 207,
+      "day": "Monday",
+      "zone": "A"
+    },
+    {
+      "street": "WHITMAN ST",
+      "low": 10,
+      "high": 81,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "WILBUR ST",
+      "low": 20,
+      "high": 36,
+      "day": "Monday",
+      "zone": "A"
+    },
+    {
+      "street": "WILDWOOD RD",
+      "low": 11,
+      "high": 24,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "WILLIAMS AVE",
+      "low": 12,
+      "high": 25,
+      "day": "Monday",
+      "zone": "A"
+    },
+    {
+      "street": "WILLIAMS CRT",
+      "low": 8,
+      "high": 8,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "WILLOW AVE",
+      "low": 4,
+      "high": 48,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "WILLOW LN",
+      "low": 5,
+      "high": 28,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "WILSON AVE",
+      "low": 12,
+      "high": 117,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "WINDSOR RD",
+      "low": 5,
+      "high": 105,
+      "day": "Tuesday",
+      "zone": "B"
+    },
+    {
+      "street": "WINGATE RD",
+      "low": 6,
+      "high": 111,
+      "day": "Thursday",
+      "zone": "A"
+    },
+    {
+      "street": "WINONA WAY",
+      "low": 6,
+      "high": 22,
+      "day": "Friday",
+      "zone": "A"
+    },
+    {
+      "street": "WINSTEAD RD",
+      "low": 0,
+      "high": 59,
+      "day": "Thursday",
+      "zone": "A"
+    },
+    {
+      "street": "WINTER CRT",
+      "low": 12,
+      "high": 59,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "WINTER ST",
+      "low": 38,
+      "high": 45,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "WITUWAMAT RD",
+      "low": 8,
+      "high": 81,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "WOLCOTT ST",
+      "low": 12,
+      "high": 20,
+      "day": "Thursday",
+      "zone": "B"
+    },
+    {
+      "street": "WOOD AVE",
+      "low": 12,
+      "high": 55,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "WOODBINE RD",
+      "low": 4,
+      "high": 35,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "WOODLAND DR",
+      "low": 11,
+      "high": 67,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "WOODMAN CIR",
+      "low": 15,
+      "high": 55,
+      "day": "Tuesday",
+      "zone": "B"
+    },
+    {
+      "street": "WOODSIDE PATH",
+      "low": 1,
+      "high": 49,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "WORCESTER TERRACE",
+      "low": 9,
+      "high": 9,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "WORONOCO RD",
+      "low": 12,
+      "high": 40,
+      "day": "Friday",
+      "zone": "A"
+    },
+    {
+      "street": "WORSTER TERRACE",
+      "low": 17,
+      "high": 17,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "WORTHEN AVE",
+      "low": 5,
+      "high": 175,
+      "day": "Tuesday",
+      "zone": "B"
+    },
+    {
+      "street": "WRIGHT ST",
+      "low": 9,
+      "high": 54,
+      "day": "Monday",
+      "zone": "A"
+    },
+    {
+      "street": "WYCLIFFE ST",
+      "low": 10,
+      "high": 15,
+      "day": "Tuesday",
+      "zone": "A"
+    }
   ]
 }

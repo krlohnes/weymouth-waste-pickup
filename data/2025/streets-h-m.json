@@ -1,216 +1,1488 @@
 {
   "streets": [
-    { "street": "HADLEY ST", "low": 15, "high": 20, "day": "Tuesday", "zone": "A" },
-    { "street": "HALE ST", "low": 5, "high": 25, "day": "Friday", "zone": "B" },
-    { "street": "HANIAN DR", "low": 17, "high": 160, "day": "Thursday", "zone": "A" },
-    { "street": "HANIFAN LANE", "low": 5, "high": 15, "day": "Wednesday", "zone": "A" },
-    { "street": "HANOVER ST", "low": 8, "high": 16, "day": "Tuesday", "zone": "A" },
-    { "street": "HARBOR VIEW AVE", "low": 6, "high": 30, "day": "Friday", "zone": "B" },
-    { "street": "HARDING AVE", "low": 15, "high": 100, "day": "Friday", "zone": "B" },
-    { "street": "HARLAND RD", "low": 4, "high": 17, "day": "Tuesday", "zone": "B" },
-    { "street": "HARLEM RD", "low": 5, "high": 31, "day": "Thursday", "zone": "B" },
-    { "street": "HART AVE", "low": 4, "high": 12, "day": "Tuesday", "zone": "B" },
-    { "street": "HARVARD ST", "low": 5, "high": 54, "day": "Friday", "zone": "B" },
-    { "street": "HARVEST LN", "low": 11, "high": 29, "day": "Monday", "zone": "B" },
-    { "street": "HAWKINS CT", "low": 6, "high": 29, "day": "Wednesday", "zone": "A" },
-    { "street": "HAWKINS ST", "low": 11, "high": 26, "day": "Wednesday", "zone": "A" },
-    { "street": "HAWTHORNE ST", "low": 8, "high": 134, "day": "Wednesday", "zone": "A" },
-    { "street": "HEALY RD", "low": 3, "high": 66, "day": "Tuesday", "zone": "B" },
-    { "street": "HEATHER LN", "low": 19, "high": 80, "day": "Monday", "zone": "B" },
-    { "street": "HEIDI WAY", "low": 19, "high": 19, "day": "Monday", "zone": "B" },
-    { "street": "HENDERSON ST", "low": 18, "high": 27, "day": "Tuesday", "zone": "B" },
-    { "street": "HERITAGE LN", "low": 10, "high": 197, "day": "Wednesday", "zone": "B" },
-    { "street": "HEWETT RD", "low": 5, "high": 23, "day": "Thursday", "zone": "B" },
-    { "street": "HIBISCUS AVE", "low": 64, "high": 185, "day": "Friday", "zone": "B" },
-    { "street": "HICKORY LN", "low": 15, "high": 136, "day": "Tuesday", "zone": "A" },
-    { "street": "HIGH SCHOOLTER", "low": 15, "high": 15, "day": "Wednesday", "zone": "B" },
-    { "street": "HIGH ST", "low": 9, "high": 118, "day": "Wednesday", "zone": "A" },
-    { "street": "HIGH ST PL", "low": 15, "high": 23, "day": "Wednesday", "zone": "A" },
-    { "street": "HIGHLAND PL", "low": 10, "high": 56, "day": "Tuesday", "zone": "A" },
-    { "street": "HILL ST", "low": 6, "high": 117, "day": "Wednesday", "zone": "A" },
-    { "street": "HILL TOP RD", "low": 6, "high": 39, "day": "Thursday", "zone": "B" },
-    { "street": "HILLCREST RD", "low": 14, "high": 74, "day": "Wednesday", "zone": "A" },
-    { "street": "HILLDALE RD", "low": 4, "high": 56, "day": "Monday", "zone": "B" },
-    { "street": "HILTON DR", "low": 15, "high": 34, "day": "Monday", "zone": "A" },
-    { "street": "HINGHAM AVE", "low": 51, "high": 62, "day": "Monday", "zone": "A" },
-    { "street": "HINSTON RD", "low": 11, "high": 123, "day": "Thursday", "zone": "A" },
-    { "street": "HOBAMACK RD", "low": 2, "high": 44, "day": "Friday", "zone": "B" },
-    { "street": "HOBSON AVE", "low": 50, "high": 60, "day": "Tuesday", "zone": "A" },
-    { "street": "HOLBROOK RD", "low": 6, "high": 69, "day": "Friday", "zone": "B" },
-    { "street": "HOLLIS ST", "low": 10, "high": 128, "day": "Monday", "zone": "B" },
-    { "street": "HOLLY HILL CIR", "low": 11, "high": 148, "day": "Tuesday", "zone": "A" },
-    { "street": "HOLMBERG RD", "low": 12, "high": 35, "day": "Wednesday", "zone": "B" },
-    { "street": "HOLMES AVE", "low": 11, "high": 85, "day": "Thursday", "zone": "B" },
-    { "street": "HOMER ST", "low": 3, "high": 20, "day": "Monday", "zone": "A" },
-    { "street": "HOMESTEAD AVE", "low": 11, "high": 164, "day": "Tuesday", "zone": "B" },
-    { "street": "HOUSE ROCK RD", "low": 15, "high": 62, "day": "Wednesday", "zone": "B" },
-    { "street": "HOWARD ST", "low": 10, "high": 30, "day": "Friday", "zone": "A" },
-    { "street": "HUBBARD ST", "low": 15, "high": 15, "day": "Monday", "zone": "A" },
-    { "street": "HUMPHREY ST", "low": 19, "high": 56, "day": "Wednesday", "zone": "A" },
-    { "street": "HUNT ST", "low": 25, "high": 45, "day": "Tuesday", "zone": "B" },
-    { "street": "HUNTER TER", "low": 18, "high": 31, "day": "Tuesday", "zone": "A" },
-    { "street": "HUNTINGTON AVE", "low": 17, "high": 53, "day": "Monday", "zone": "A" },
-    { "street": "HYDE ST", "low": 14, "high": 48, "day": "Friday", "zone": "B" },
-    { "street": "IDLEWELL BLV", "low": 6, "high": 240, "day": "Friday", "zone": "B" },
-    { "street": "IDLEWELL ST", "low": 2, "high": 73, "day": "Friday", "zone": "B" },
-    { "street": "INGRID RD", "low": 14, "high": 71, "day": "Tuesday", "zone": "A" },
-    { "street": "INMAN RD", "low": 18, "high": 72, "day": "Monday", "zone": "B" },
-    { "street": "INTERVALE RD", "low": 4, "high": 68, "day": "Wednesday", "zone": "B" },
-    { "street": "IRON HILL ST", "low": 28, "high": 126, "day": "Wednesday", "zone": "A" },
-    { "street": "IRVING RD", "low": 6, "high": 28, "day": "Thursday", "zone": "B" },
-    { "street": "ISLAND VIEW RD", "low": 11, "high": 59, "day": "Wednesday", "zone": "A" },
-    { "street": "IVY COURT", "low": 3, "high": 30, "day": "Monday", "zone": "B" },
-    { "street": "IVY RD", "low": 6, "high": 140, "day": "Monday", "zone": "B" },
-    { "street": "JACQUELYN RD", "low": 15, "high": 60, "day": "Tuesday", "zone": "B" },
-    { "street": "JAFFREY ST", "low": 8, "high": 216, "day": "Wednesday", "zone": "B" },
-    { "street": "JAMES RD", "low": 4, "high": 36, "day": "Thursday", "zone": "A" },
-    { "street": "JASON LANE", "low": 9, "high": 21, "day": "Tuesday", "zone": "A" },
-    { "street": "JAY RD", "low": 15, "high": 23, "day": "Monday", "zone": "B" },
-    { "street": "JESSICA LANE", "low": 8, "high": 71, "day": "Monday", "zone": "B" },
-    { "street": "JOAN TER", "low": 17, "high": 35, "day": "Tuesday", "zone": "A" },
-    { "street": "JOHN QUINCY LN", "low": 1, "high": 32, "day": "Friday", "zone": "A" },
-    { "street": "JOHN ST", "low": 16, "high": 56, "day": "Thursday", "zone": "B" },
-    { "street": "JOHNSON RD", "low": 9, "high": 56, "day": "Friday", "zone": "A" },
-    { "street": "JORDAN DR", "low": 7, "high": 88, "day": "Tuesday", "zone": "A" },
-    { "street": "JOYCE AVE", "low": 4, "high": 10, "day": "Tuesday", "zone": "B" },
-    { "street": "JUDITH RD", "low": 3, "high": 115, "day": "Thursday", "zone": "B" },
-    { "street": "JUDSON RD", "low": 1, "high": 85, "day": "Tuesday", "zone": "B" },
-    { "street": "JULIA RD", "low": 15, "high": 60, "day": "Thursday", "zone": "B" },
-    { "street": "JUPITER ST", "low": 14, "high": 31, "day": "Monday", "zone": "B" },
-    { "street": "K ST", "low": 11, "high": 63, "day": "Thursday", "zone": "A" },
-    { "street": "KAREN LN", "low": 4, "high": 30, "day": "Wednesday", "zone": "B" },
-    { "street": "KARLYN RD", "low": 12, "high": 70, "day": "Wednesday", "zone": "B" },
-    { "street": "KATHERINE ST", "low": 12, "high": 82, "day": "Friday", "zone": "A" },
-    { "street": "KATHLEEN RD", "low": 67, "high": 84, "day": "Monday", "zone": "B" },
-    { "street": "KEATING CIR", "low": 10, "high": 62, "day": "Monday", "zone": "B" },
-    { "street": "KEITH ST", "low": 6, "high": 121, "day": "Friday", "zone": "B" },
-    { "street": "KENSINGTON RD", "low": 32, "high": 86, "day": "Friday", "zone": "B" },
-    { "street": "KENT RD", "low": 12, "high": 50, "day": "Monday", "zone": "A" },
-    { "street": "KETCHAM LN", "low": 6, "high": 49, "day": "Tuesday", "zone": "A" },
-    { "street": "KING AVE", "low": 15, "high": 116, "day": "Friday", "zone": "B" },
-    { "street": "KING OAK TER", "low": 15, "high": 41, "day": "Thursday", "zone": "A" },
-    { "street": "KING PHILIP ST", "low": 13, "high": 239, "day": "Monday", "zone": "B" },
-    { "street": "KINGMAN ST", "low": 11, "high": 89, "day": "Tuesday", "zone": "B" },
-    { "street": "KINGS COVE BEACH RD", "low": 67, "high": 111, "day": "Friday", "zone": "B" },
-    { "street": "KINGS COVE WAY", "low": 18, "high": 51, "day": "Friday", "zone": "B" },
-    { "street": "KIPLING RD", "low": 7, "high": 34, "day": "Tuesday", "zone": "A" },
-    { "street": "KIRKLAND RD", "low": 26, "high": 80, "day": "Monday", "zone": "B" },
-    { "street": "KLASSON LN", "low": 11, "high": 41, "day": "Wednesday", "zone": "B" },
-    { "street": "KNOLLWOOD CIR", "low": 4, "high": 132, "day": "Tuesday", "zone": "B" },
-    { "street": "KUJA RD", "low": 4, "high": 11, "day": "Monday", "zone": "A" },
-    { "street": "LAFAYETTE AVE", "low": 2, "high": 45, "day": "Thursday", "zone": "A" },
-    { "street": "LAKE SHORE DR", "low": 4, "high": 240, "day": "Wednesday", "zone": "B" },
-    { "street": "LAKE ST", "low": 20, "high": 321, "day": "Wednesday", "zone": "A" },
-    { "street": "LAKE ST OFF", "low": 126, "high": 126, "day": "Wednesday", "zone": "A" },
-    { "street": "LAKE VIEW RD", "low": 5, "high": 59, "day": "Wednesday", "zone": "A" },
-    { "street": "LAKECREST PATH", "low": 7, "high": 69, "day": "Tuesday", "zone": "A" },
-    { "street": "LAKEHURST AVE", "low": 11, "high": 184, "day": "Tuesday", "zone": "A" },
-    { "street": "LAKESIDE AVE", "low": 9, "high": 34, "day": "Wednesday", "zone": "A" },
-    { "street": "LAKEWOOD RD", "low": 2, "high": 94, "day": "Monday", "zone": "B" },
-    { "street": "LAMBERT AVE", "low": 5, "high": 185, "day": "Wednesday", "zone": "A" },
-    { "street": "LANE AVE", "low": 12, "high": 142, "day": "Tuesday", "zone": "A" },
-    { "street": "LANTERN LN", "low": 9, "high": 33, "day": "Friday", "zone": "B" },
-    { "street": "LAUDERVALE RD", "low": 8, "high": 33, "day": "Friday", "zone": "A" },
-    { "street": "LAUREL ST", "low": 3, "high": 66, "day": "Thursday", "zone": "A" },
-    { "street": "LAWSON RD", "low": 6, "high": 23, "day": "Monday", "zone": "A" },
-    { "street": "LEAHAVEN RD", "low": 11, "high": 80, "day": "Tuesday", "zone": "A" },
-    { "street": "LEDGE HILL RD", "low": 11, "high": 27, "day": "Friday", "zone": "B" },
-    { "street": "LEDGE HILL TER", "low": 8, "high": 19, "day": "Friday", "zone": "B" },
-    { "street": "LEDGEBROOK RD", "low": 5, "high": 87, "day": "Tuesday", "zone": "A" },
-    { "street": "LEE ST", "low": 11, "high": 38, "day": "Thursday", "zone": "A" },
-    { "street": "LEONARD RD", "low": 7, "high": 50, "day": "Friday", "zone": "B" },
-    { "street": "LESLIE AVE", "low": 16, "high": 36, "day": "Wednesday", "zone": "B" },
-    { "street": "LESTER LANE", "low": 12, "high": 101, "day": "Tuesday", "zone": "B" },
-    { "street": "LIBBEY IND PKW", "low": 276, "high": 280, "day": "Friday", "zone": "A" },
-    { "street": "LIBERTY BELL CIR", "low": 4, "high": 242, "day": "Thursday", "zone": "A" },
-    { "street": "LIBERTY ST", "low": 2, "high": 171, "day": "Monday", "zone": "A" },
-    { "street": "LIGHTWOOD WAY", "low": 8, "high": 8, "day": "Wednesday", "zone": "A" },
-    { "street": "LILLIAN RD", "low": 4, "high": 30, "day": "Thursday", "zone": "A" },
-    { "street": "LILLY ST", "low": 5, "high": 16, "day": "Friday", "zone": "B" },
-    { "street": "LINCOLN ST", "low": 5, "high": 47, "day": "Friday", "zone": "A" },
-    { "street": "LINDA LN", "low": 9, "high": 36, "day": "Friday", "zone": "B" },
-    { "street": "LINDALE AVE", "low": 12, "high": 82, "day": "Thursday", "zone": "B" },
-    { "street": "LINDBERGH AVE", "low": 15, "high": 28, "day": "Tuesday", "zone": "B" },
-    { "street": "LINDEN PL", "low": 4, "high": 32, "day": "Thursday", "zone": "A" },
-    { "street": "LINNWAY ST", "low": 6, "high": 30, "day": "Tuesday", "zone": "A" },
-    { "street": "LINTRIC DR", "low": 15, "high": 130, "day": "Monday", "zone": "A" },
-    { "street": "LITCHFIELD RD", "low": 5, "high": 15, "day": "Thursday", "zone": "B" },
-    { "street": "LOCHMERE AVE", "low": 2, "high": 71, "day": "Friday", "zone": "A" },
-    { "street": "LOCKEWOODS DR", "low": 25, "high": 40, "day": "Monday", "zone": "A" },
-    { "street": "LONE PINE PTH", "low": 7, "high": 73, "day": "Tuesday", "zone": "B" },
-    { "street": "LONGFELLOW ST", "low": 17, "high": 22, "day": "Monday", "zone": "B" },
-    { "street": "LONGMEADOW RD", "low": 5, "high": 26, "day": "Tuesday", "zone": "A" },
-    { "street": "LONGWOOD RD", "low": 15, "high": 88, "day": "Wednesday", "zone": "B" },
-    { "street": "LORRAINE ST", "low": 8, "high": 138, "day": "Wednesday", "zone": "A" },
-    { "street": "LOUDS AVE", "low": 8, "high": 16, "day": "Friday", "zone": "B" },
-    { "street": "LOVELL ST", "low": 14, "high": 90, "day": "Thursday", "zone": "B" },
-    { "street": "LUCAS CIRCLE", "low": 6, "high": 30, "day": "Monday", "zone": "A" },
-    { "street": "LYME ST", "low": 2, "high": 40, "day": "Wednesday", "zone": "B" },
-    { "street": "MACDOUGALL CT", "low": 5, "high": 46, "day": "Tuesday", "zone": "A" },
-    { "street": "MACE AVE", "low": 15, "high": 23, "day": "Wednesday", "zone": "A" },
-    { "street": "MADISON ST", "low": 24, "high": 98, "day": "Thursday", "zone": "A" },
-    { "street": "MAIN ST", "low": 435, "high": 650, "day": "Tuesday", "zone": "A" },
-    { "street": "MAIN ST", "low": 589, "high": 589, "day": "Monday", "zone": "A" },
-    { "street": "MAIN ST", "low": 658, "high": 678, "day": "Friday", "zone": "A" },
-    { "street": "MAIN ST", "low": 714, "high": 1703, "day": "Monday", "zone": "B" },
-    { "street": "MAIN ST", "low": 1044, "high": 1430, "day": "Friday", "zone": "B" },
-    { "street": "MALCOMB ST", "low": 11, "high": 23, "day": "Tuesday", "zone": "A" },
-    { "street": "MALTBY LN", "low": 5, "high": 11, "day": "Thursday", "zone": "B" },
-    { "street": "MAMIE RD", "low": 8, "high": 71, "day": "Monday", "zone": "B" },
-    { "street": "MANATEE RD", "low": 5, "high": 56, "day": "Wednesday", "zone": "A" },
-    { "street": "MANDALAY RD", "low": 14, "high": 89, "day": "Tuesday", "zone": "A" },
-    { "street": "MANOMET RD", "low": 3, "high": 46, "day": "Friday", "zone": "B" },
-    { "street": "MANSFIELD STREET", "low": 8, "high": 101, "day": "Monday", "zone": "A" },
-    { "street": "MANZANETTA AVE", "low": 80, "high": 108, "day": "Friday", "zone": "B" },
-    { "street": "MAPLE ST", "low": 13, "high": 51, "day": "Thursday", "zone": "A" },
-    { "street": "MARIE AVE", "low": 17, "high": 53, "day": "Monday", "zone": "A" },
-    { "street": "MARINE RD", "low": 17, "high": 45, "day": "Monday", "zone": "A" },
-    { "street": "MARION RD", "low": 10, "high": 22, "day": "Friday", "zone": "A" },
-    { "street": "MARKS RD", "low": 6, "high": 85, "day": "Wednesday", "zone": "A" },
-    { "street": "MARS ST", "low": 5, "high": 36, "day": "Monday", "zone": "B" },
-    { "street": "MARTIN ST", "low": 18, "high": 34, "day": "Tuesday", "zone": "B" },
-    { "street": "MARY ROSE RD", "low": 17, "high": 40, "day": "Wednesday", "zone": "B" },
-    { "street": "MASON ST", "low": 6, "high": 119, "day": "Monday", "zone": "B" },
-    { "street": "MASSAPOAG ST", "low": 17, "high": 60, "day": "Monday", "zone": "B" },
-    { "street": "MASSASOIT RD", "low": 5, "high": 49, "day": "Thursday", "zone": "B" },
-    { "street": "MAY TER", "low": 2, "high": 84, "day": "Monday", "zone": "A" },
-    { "street": "MAYFLOWER AVE", "low": 8, "high": 12, "day": "Thursday", "zone": "B" },
-    { "street": "MC DONALD CIRCLE", "low": 19, "high": 20, "day": "Wednesday", "zone": "B" },
-    { "street": "MC KINLEY ROAD", "low": 7, "high": 20, "day": "Friday", "zone": "B" },
-    { "street": "MEADOW LN", "low": 8, "high": 26, "day": "Monday", "zone": "A" },
-    { "street": "MEETING HOUSE LN", "low": 10, "high": 54, "day": "Friday", "zone": "B" },
-    { "street": "MELODY LN", "low": 8, "high": 23, "day": "Tuesday", "zone": "A" },
-    { "street": "MERCURY ST", "low": 12, "high": 108, "day": "Monday", "zone": "B" },
-    { "street": "MEREDITH WAY", "low": 8, "high": 93, "day": "Wednesday", "zone": "B" },
-    { "street": "MERILYN RD", "low": 14, "high": 39, "day": "Monday", "zone": "B" },
-    { "street": "MERRYKNOLL RD", "low": 67, "high": 156, "day": "Thursday", "zone": "B" },
-    { "street": "MERRYMOUNT RD", "low": 12, "high": 37, "day": "Tuesday", "zone": "A" },
-    { "street": "MICHELE DR", "low": 7, "high": 65, "day": "Monday", "zone": "B" },
-    { "street": "MIDDLE ST", "low": 1, "high": 660, "day": "Wednesday", "zone": "B" },
-    { "street": "MIDDLE ST", "low": 50, "high": 166, "day": "Thursday", "zone": "A" },
-    { "street": "MIDDLE ST", "low": 708, "high": 1136, "day": "Tuesday", "zone": "A" },
-    { "street": "MIDDLE ST", "low": 1028, "high": 1028, "day": "Friday", "zone": "A" },
-    { "street": "MILL RIVER DR", "low": 7, "high": 102, "day": "Monday", "zone": "B" },
-    { "street": "MILL ST", "low": 8, "high": 134, "day": "Tuesday", "zone": "B" },
-    { "street": "MILLETT AVE", "low": 17, "high": 43, "day": "Monday", "zone": "B" },
-    { "street": "MILLSTONE LN", "low": 10, "high": 47, "day": "Monday", "zone": "B" },
-    { "street": "MONATIQUOT ST", "low": 16, "high": 76, "day": "Friday", "zone": "A" },
-    { "street": "MONTCALM ST", "low": 11, "high": 12, "day": "Friday", "zone": "B" },
-    { "street": "MOORE RD", "low": 20, "high": 20, "day": "Tuesday", "zone": "A" },
-    { "street": "MORELAND RD", "low": 14, "high": 134, "day": "Friday", "zone": "A" },
-    { "street": "MORELAND RD", "low": 179, "high": 187, "day": "Thursday", "zone": "B" },
-    { "street": "MORELL ST", "low": 7, "high": 31, "day": "Friday", "zone": "A" },
-    { "street": "MORNINGSIDE PATH", "low": 5, "high": 132, "day": "Wednesday", "zone": "A" },
-    { "street": "MORRELL ST", "low": 3, "high": 3, "day": "Friday", "zone": "A" },
-    { "street": "MOULTON AVE", "low": 14, "high": 34, "day": "Friday", "zone": "B" },
-    { "street": "MOUNTAIN VIEW RD", "low": 29, "high": 85, "day": "Wednesday", "zone": "A" },
-    { "street": "MT IDA RD", "low": 10, "high": 32, "day": "Thursday", "zone": "A" },
-    { "street": "MT VERNON RD EAST", "low": 7, "high": 208, "day": "Thursday", "zone": "A" },
-    { "street": "MT VERNON RD WEST", "low": 5, "high": 148, "day": "Thursday", "zone": "A" },
-    { "street": "MULCAHY LN", "low": 15, "high": 55, "day": "Monday", "zone": "B" },
-    { "street": "MULLIGAN DR", "low": 7, "high": 33, "day": "Monday", "zone": "A" },
-    { "street": "MUTTON LANE", "low": 4, "high": 71, "day": "Tuesday", "zone": "A" },
-    { "street": "MUTTON LANE", "low": 94, "high": 185, "day": "Wednesday", "zone": "A" },
-    { "street": "MYRTLE ST", "low": 12, "high": 76, "day": "Wednesday", "zone": "A" }
+    {
+      "street": "HADLEY ST",
+      "low": 15,
+      "high": 20,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "HALE ST",
+      "low": 5,
+      "high": 25,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "HANIAN DR",
+      "low": 17,
+      "high": 160,
+      "day": "Thursday",
+      "zone": "A"
+    },
+    {
+      "street": "HANIFAN LANE",
+      "low": 5,
+      "high": 15,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "HANOVER ST",
+      "low": 8,
+      "high": 16,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "HARBOR VIEW AVE",
+      "low": 6,
+      "high": 30,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "HARDING AVE",
+      "low": 15,
+      "high": 100,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "HARLAND RD",
+      "low": 4,
+      "high": 17,
+      "day": "Tuesday",
+      "zone": "B"
+    },
+    {
+      "street": "HARLEM RD",
+      "low": 5,
+      "high": 31,
+      "day": "Thursday",
+      "zone": "B"
+    },
+    {
+      "street": "HART AVE",
+      "low": 4,
+      "high": 12,
+      "day": "Tuesday",
+      "zone": "B"
+    },
+    {
+      "street": "HARVARD ST",
+      "low": 5,
+      "high": 54,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "HARVEST LN",
+      "low": 11,
+      "high": 29,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "HAWKINS CT",
+      "low": 6,
+      "high": 29,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "HAWKINS ST",
+      "low": 11,
+      "high": 26,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "HAWTHORNE ST",
+      "low": 8,
+      "high": 134,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "HEALY RD",
+      "low": 3,
+      "high": 66,
+      "day": "Tuesday",
+      "zone": "B"
+    },
+    {
+      "street": "HEATHER LN",
+      "low": 19,
+      "high": 80,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "HEIDI WAY",
+      "low": 19,
+      "high": 19,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "HENDERSON ST",
+      "low": 18,
+      "high": 27,
+      "day": "Tuesday",
+      "zone": "B"
+    },
+    {
+      "street": "HERITAGE LN",
+      "low": 10,
+      "high": 197,
+      "day": "Wednesday",
+      "zone": "B"
+    },
+    {
+      "street": "HEWETT RD",
+      "low": 5,
+      "high": 23,
+      "day": "Thursday",
+      "zone": "B"
+    },
+    {
+      "street": "HIBISCUS AVE",
+      "low": 64,
+      "high": 185,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "HICKORY LN",
+      "low": 15,
+      "high": 136,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "HIGH SCHOOLTER",
+      "low": 15,
+      "high": 15,
+      "day": "Wednesday",
+      "zone": "B"
+    },
+    {
+      "street": "HIGH ST",
+      "low": 9,
+      "high": 118,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "HIGH ST PL",
+      "low": 15,
+      "high": 23,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "HIGHLAND PL",
+      "low": 10,
+      "high": 56,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "HILL ST",
+      "low": 6,
+      "high": 117,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "HILL TOP RD",
+      "low": 6,
+      "high": 39,
+      "day": "Thursday",
+      "zone": "B"
+    },
+    {
+      "street": "HILLCREST RD",
+      "low": 14,
+      "high": 74,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "HILLDALE RD",
+      "low": 4,
+      "high": 56,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "HILTON DR",
+      "low": 15,
+      "high": 34,
+      "day": "Monday",
+      "zone": "A"
+    },
+    {
+      "street": "HINGHAM AVE",
+      "low": 51,
+      "high": 62,
+      "day": "Monday",
+      "zone": "A"
+    },
+    {
+      "street": "HINSTON RD",
+      "low": 11,
+      "high": 123,
+      "day": "Thursday",
+      "zone": "A"
+    },
+    {
+      "street": "HOBAMACK RD",
+      "low": 2,
+      "high": 44,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "HOBSON AVE",
+      "low": 50,
+      "high": 60,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "HOLBROOK RD",
+      "low": 6,
+      "high": 69,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "HOLLIS ST",
+      "low": 10,
+      "high": 128,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "HOLLY HILL CIR",
+      "low": 11,
+      "high": 148,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "HOLMBERG RD",
+      "low": 12,
+      "high": 35,
+      "day": "Wednesday",
+      "zone": "B"
+    },
+    {
+      "street": "HOLMES AVE",
+      "low": 11,
+      "high": 85,
+      "day": "Thursday",
+      "zone": "B"
+    },
+    {
+      "street": "HOMER ST",
+      "low": 3,
+      "high": 20,
+      "day": "Monday",
+      "zone": "A"
+    },
+    {
+      "street": "HOMESTEAD AVE",
+      "low": 11,
+      "high": 164,
+      "day": "Tuesday",
+      "zone": "B"
+    },
+    {
+      "street": "HOUSE ROCK RD",
+      "low": 15,
+      "high": 62,
+      "day": "Wednesday",
+      "zone": "B"
+    },
+    {
+      "street": "HOWARD ST",
+      "low": 10,
+      "high": 30,
+      "day": "Friday",
+      "zone": "A"
+    },
+    {
+      "street": "HUBBARD ST",
+      "low": 15,
+      "high": 15,
+      "day": "Monday",
+      "zone": "A"
+    },
+    {
+      "street": "HUMPHREY ST",
+      "low": 19,
+      "high": 56,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "HUNT ST",
+      "low": 25,
+      "high": 45,
+      "day": "Tuesday",
+      "zone": "B"
+    },
+    {
+      "street": "HUNTER TER",
+      "low": 18,
+      "high": 31,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "HUNTINGTON AVE",
+      "low": 17,
+      "high": 53,
+      "day": "Monday",
+      "zone": "A"
+    },
+    {
+      "street": "HYDE ST",
+      "low": 14,
+      "high": 48,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "IDLEWELL BLV",
+      "low": 6,
+      "high": 240,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "IDLEWELL ST",
+      "low": 2,
+      "high": 73,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "INGRID RD",
+      "low": 14,
+      "high": 71,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "INMAN RD",
+      "low": 18,
+      "high": 72,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "INTERVALE RD",
+      "low": 4,
+      "high": 68,
+      "day": "Wednesday",
+      "zone": "B"
+    },
+    {
+      "street": "IRON HILL ST",
+      "low": 28,
+      "high": 126,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "IRVING RD",
+      "low": 6,
+      "high": 28,
+      "day": "Thursday",
+      "zone": "B"
+    },
+    {
+      "street": "ISLAND VIEW RD",
+      "low": 11,
+      "high": 59,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "IVY COURT",
+      "low": 3,
+      "high": 30,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "IVY RD",
+      "low": 6,
+      "high": 140,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "JACQUELYN RD",
+      "low": 15,
+      "high": 60,
+      "day": "Tuesday",
+      "zone": "B"
+    },
+    {
+      "street": "JAFFREY ST",
+      "low": 8,
+      "high": 216,
+      "day": "Wednesday",
+      "zone": "B"
+    },
+    {
+      "street": "JAMES RD",
+      "low": 4,
+      "high": 36,
+      "day": "Thursday",
+      "zone": "A"
+    },
+    {
+      "street": "JASON LANE",
+      "low": 9,
+      "high": 21,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "JAY RD",
+      "low": 15,
+      "high": 23,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "JESSICA LANE",
+      "low": 8,
+      "high": 71,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "JOAN TER",
+      "low": 17,
+      "high": 35,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "JOHN QUINCY LN",
+      "low": 1,
+      "high": 32,
+      "day": "Friday",
+      "zone": "A"
+    },
+    {
+      "street": "JOHN ST",
+      "low": 16,
+      "high": 56,
+      "day": "Thursday",
+      "zone": "B"
+    },
+    {
+      "street": "JOHNSON RD",
+      "low": 9,
+      "high": 56,
+      "day": "Friday",
+      "zone": "A"
+    },
+    {
+      "street": "JORDAN DR",
+      "low": 7,
+      "high": 88,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "JOYCE AVE",
+      "low": 4,
+      "high": 10,
+      "day": "Tuesday",
+      "zone": "B"
+    },
+    {
+      "street": "JUDITH RD",
+      "low": 3,
+      "high": 115,
+      "day": "Thursday",
+      "zone": "B"
+    },
+    {
+      "street": "JUDSON RD",
+      "low": 1,
+      "high": 85,
+      "day": "Tuesday",
+      "zone": "B"
+    },
+    {
+      "street": "JULIA RD",
+      "low": 15,
+      "high": 60,
+      "day": "Thursday",
+      "zone": "B"
+    },
+    {
+      "street": "JUPITER ST",
+      "low": 14,
+      "high": 31,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "K ST",
+      "low": 11,
+      "high": 63,
+      "day": "Thursday",
+      "zone": "A"
+    },
+    {
+      "street": "KAREN LN",
+      "low": 4,
+      "high": 30,
+      "day": "Wednesday",
+      "zone": "B"
+    },
+    {
+      "street": "KARLYN RD",
+      "low": 12,
+      "high": 70,
+      "day": "Wednesday",
+      "zone": "B"
+    },
+    {
+      "street": "KATHERINE ST",
+      "low": 12,
+      "high": 82,
+      "day": "Friday",
+      "zone": "A"
+    },
+    {
+      "street": "KATHLEEN RD",
+      "low": 67,
+      "high": 84,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "KEATING CIR",
+      "low": 10,
+      "high": 62,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "KEITH ST",
+      "low": 6,
+      "high": 121,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "KENSINGTON RD",
+      "low": 32,
+      "high": 86,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "KENT RD",
+      "low": 12,
+      "high": 50,
+      "day": "Monday",
+      "zone": "A"
+    },
+    {
+      "street": "KETCHAM LN",
+      "low": 6,
+      "high": 49,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "KING AVE",
+      "low": 15,
+      "high": 116,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "KING OAK TER",
+      "low": 15,
+      "high": 41,
+      "day": "Thursday",
+      "zone": "A"
+    },
+    {
+      "street": "KING PHILIP ST",
+      "low": 13,
+      "high": 239,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "KING'S COVE BEACH RD",
+      "low": 67,
+      "high": 111,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "KINGMAN ST",
+      "low": 11,
+      "high": 89,
+      "day": "Tuesday",
+      "zone": "B"
+    },
+    {
+      "street": "KINGS COVE WAY",
+      "low": 18,
+      "high": 51,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "KIPLING RD",
+      "low": 7,
+      "high": 34,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "KIRKLAND RD",
+      "low": 26,
+      "high": 80,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "KLASSON LN",
+      "low": 11,
+      "high": 41,
+      "day": "Wednesday",
+      "zone": "B"
+    },
+    {
+      "street": "KNOLLWOOD CIR",
+      "low": 4,
+      "high": 132,
+      "day": "Tuesday",
+      "zone": "B"
+    },
+    {
+      "street": "KUJA RD",
+      "low": 4,
+      "high": 11,
+      "day": "Monday",
+      "zone": "A"
+    },
+    {
+      "street": "LAFAYETTE AVE",
+      "low": 2,
+      "high": 45,
+      "day": "Thursday",
+      "zone": "A"
+    },
+    {
+      "street": "LAKE SHORE DR",
+      "low": 4,
+      "high": 240,
+      "day": "Wednesday",
+      "zone": "B"
+    },
+    {
+      "street": "LAKE ST",
+      "low": 20,
+      "high": 321,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "LAKE ST OFF",
+      "low": 126,
+      "high": 126,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "LAKE VIEW RD",
+      "low": 5,
+      "high": 59,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "LAKECREST PATH",
+      "low": 7,
+      "high": 69,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "LAKEHURST AVE",
+      "low": 11,
+      "high": 184,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "LAKESIDE AVE",
+      "low": 9,
+      "high": 34,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "LAKEWOOD RD",
+      "low": 2,
+      "high": 94,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "LAMBERT AVE",
+      "low": 5,
+      "high": 185,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "LANE AVE",
+      "low": 12,
+      "high": 142,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "LANTERN LN",
+      "low": 9,
+      "high": 33,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "LAUDERVALE RD",
+      "low": 8,
+      "high": 33,
+      "day": "Friday",
+      "zone": "A"
+    },
+    {
+      "street": "LAUREL ST",
+      "low": 3,
+      "high": 66,
+      "day": "Thursday",
+      "zone": "A"
+    },
+    {
+      "street": "LAWSON RD",
+      "low": 6,
+      "high": 23,
+      "day": "Monday",
+      "zone": "A"
+    },
+    {
+      "street": "LEAHAVEN RD",
+      "low": 11,
+      "high": 80,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "LEDGE HILL RD",
+      "low": 11,
+      "high": 27,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "LEDGE HILL TER",
+      "low": 8,
+      "high": 19,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "LEDGEBROOK RD",
+      "low": 5,
+      "high": 87,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "LEE ST",
+      "low": 11,
+      "high": 38,
+      "day": "Thursday",
+      "zone": "A"
+    },
+    {
+      "street": "LEONARD RD",
+      "low": 7,
+      "high": 50,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "LESLIE AVE",
+      "low": 16,
+      "high": 36,
+      "day": "Wednesday",
+      "zone": "B"
+    },
+    {
+      "street": "LESTER LANE",
+      "low": 12,
+      "high": 101,
+      "day": "Tuesday",
+      "zone": "B"
+    },
+    {
+      "street": "LIBBEY IND PKW",
+      "low": 276,
+      "high": 280,
+      "day": "Friday",
+      "zone": "A"
+    },
+    {
+      "street": "LIBERTY BELL CIR",
+      "low": 4,
+      "high": 242,
+      "day": "Thursday",
+      "zone": "A"
+    },
+    {
+      "street": "LIBERTY ST",
+      "low": 2,
+      "high": 171,
+      "day": "Monday",
+      "zone": "A"
+    },
+    {
+      "street": "LIGHTWOOD WAY",
+      "low": 8,
+      "high": 8,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "LILLIAN RD",
+      "low": 4,
+      "high": 30,
+      "day": "Thursday",
+      "zone": "A"
+    },
+    {
+      "street": "LILLY ST",
+      "low": 5,
+      "high": 16,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "LINCOLN ST",
+      "low": 5,
+      "high": 47,
+      "day": "Friday",
+      "zone": "A"
+    },
+    {
+      "street": "LINDA LN",
+      "low": 9,
+      "high": 36,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "LINDALE AVE",
+      "low": 12,
+      "high": 82,
+      "day": "Thursday",
+      "zone": "B"
+    },
+    {
+      "street": "LINDBERGH AVE",
+      "low": 15,
+      "high": 28,
+      "day": "Tuesday",
+      "zone": "B"
+    },
+    {
+      "street": "LINDEN PL",
+      "low": 4,
+      "high": 32,
+      "day": "Thursday",
+      "zone": "A"
+    },
+    {
+      "street": "LINNWAY ST",
+      "low": 6,
+      "high": 30,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "LINTRIC DR",
+      "low": 15,
+      "high": 130,
+      "day": "Monday",
+      "zone": "A"
+    },
+    {
+      "street": "LITCHFIELD RD",
+      "low": 5,
+      "high": 15,
+      "day": "Thursday",
+      "zone": "B"
+    },
+    {
+      "street": "LOCHMERE AVE",
+      "low": 2,
+      "high": 71,
+      "day": "Friday",
+      "zone": "A"
+    },
+    {
+      "street": "LOCKEWOODS DR",
+      "low": 25,
+      "high": 40,
+      "day": "Monday",
+      "zone": "A"
+    },
+    {
+      "street": "LONE PINE PTH",
+      "low": 7,
+      "high": 73,
+      "day": "Tuesday",
+      "zone": "B"
+    },
+    {
+      "street": "LONGFELLOW ST",
+      "low": 17,
+      "high": 22,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "LONGMEADOW RD",
+      "low": 5,
+      "high": 26,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "LONGWOOD RD",
+      "low": 15,
+      "high": 88,
+      "day": "Wednesday",
+      "zone": "B"
+    },
+    {
+      "street": "LORRAINE ST",
+      "low": 8,
+      "high": 138,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "LOUDS AVE",
+      "low": 8,
+      "high": 16,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "LOVELL ST",
+      "low": 14,
+      "high": 90,
+      "day": "Thursday",
+      "zone": "B"
+    },
+    {
+      "street": "LUCAS CIRCLE",
+      "low": 6,
+      "high": 30,
+      "day": "Monday",
+      "zone": "A"
+    },
+    {
+      "street": "LYME ST",
+      "low": 2,
+      "high": 40,
+      "day": "Wednesday",
+      "zone": "B"
+    },
+    {
+      "street": "MACDOUGALL CT",
+      "low": 5,
+      "high": 46,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "MACE AVE",
+      "low": 15,
+      "high": 23,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "MADISON ST",
+      "low": 24,
+      "high": 98,
+      "day": "Thursday",
+      "zone": "A"
+    },
+    {
+      "street": "MAIN ST",
+      "low": 435,
+      "high": 650,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "MAIN ST",
+      "low": 589,
+      "high": 589,
+      "day": "Monday",
+      "zone": "A"
+    },
+    {
+      "street": "MAIN ST",
+      "low": 658,
+      "high": 678,
+      "day": "Friday",
+      "zone": "A"
+    },
+    {
+      "street": "MAIN ST",
+      "low": 714,
+      "high": 1703,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "MAIN ST",
+      "low": 1044,
+      "high": 1430,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "MALCOMB ST",
+      "low": 11,
+      "high": 23,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "MALTBY LN",
+      "low": 5,
+      "high": 11,
+      "day": "Thursday",
+      "zone": "B"
+    },
+    {
+      "street": "MAMIE RD",
+      "low": 8,
+      "high": 71,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "MANATEE RD",
+      "low": 5,
+      "high": 56,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "MANDALAY RD",
+      "low": 14,
+      "high": 89,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "MANOMET RD",
+      "low": 3,
+      "high": 46,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "MANSFIELD STREET",
+      "low": 8,
+      "high": 101,
+      "day": "Monday",
+      "zone": "A"
+    },
+    {
+      "street": "MANZANETTA AVE",
+      "low": 80,
+      "high": 108,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "MAPLE ST",
+      "low": 13,
+      "high": 51,
+      "day": "Thursday",
+      "zone": "A"
+    },
+    {
+      "street": "MARIE AVE",
+      "low": 17,
+      "high": 53,
+      "day": "Monday",
+      "zone": "A"
+    },
+    {
+      "street": "MARINE RD",
+      "low": 17,
+      "high": 45,
+      "day": "Monday",
+      "zone": "A"
+    },
+    {
+      "street": "MARION RD",
+      "low": 10,
+      "high": 22,
+      "day": "Friday",
+      "zone": "A"
+    },
+    {
+      "street": "MARKS RD",
+      "low": 6,
+      "high": 85,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "MARS ST",
+      "low": 5,
+      "high": 36,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "MARTIN ST",
+      "low": 18,
+      "high": 34,
+      "day": "Tuesday",
+      "zone": "B"
+    },
+    {
+      "street": "MARY ROSE RD",
+      "low": 17,
+      "high": 40,
+      "day": "Wednesday",
+      "zone": "B"
+    },
+    {
+      "street": "MASON ST",
+      "low": 6,
+      "high": 119,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "MASSAPOAG ST",
+      "low": 17,
+      "high": 60,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "MASSASOIT RD",
+      "low": 5,
+      "high": 49,
+      "day": "Thursday",
+      "zone": "B"
+    },
+    {
+      "street": "MAY TER",
+      "low": 2,
+      "high": 84,
+      "day": "Monday",
+      "zone": "A"
+    },
+    {
+      "street": "MAYFLOWER AVE",
+      "low": 8,
+      "high": 12,
+      "day": "Thursday",
+      "zone": "B"
+    },
+    {
+      "street": "MC DONALD CIRCLE",
+      "low": 19,
+      "high": 20,
+      "day": "Wednesday",
+      "zone": "B"
+    },
+    {
+      "street": "MC KINLEY ROAD",
+      "low": 7,
+      "high": 20,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "MEADOW LN",
+      "low": 8,
+      "high": 26,
+      "day": "Monday",
+      "zone": "A"
+    },
+    {
+      "street": "MEETING HOUSE LN",
+      "low": 10,
+      "high": 54,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "MELODY LN",
+      "low": 8,
+      "high": 23,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "MERCURY ST",
+      "low": 12,
+      "high": 108,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "MEREDITH WAY",
+      "low": 8,
+      "high": 93,
+      "day": "Wednesday",
+      "zone": "B"
+    },
+    {
+      "street": "MERILYN RD",
+      "low": 14,
+      "high": 39,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "MERRYKNOLL RD",
+      "low": 67,
+      "high": 156,
+      "day": "Thursday",
+      "zone": "B"
+    },
+    {
+      "street": "MERRYMOUNT RD",
+      "low": 12,
+      "high": 37,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "MICHELE DR",
+      "low": 7,
+      "high": 65,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "MIDDLE ST",
+      "low": 1,
+      "high": 660,
+      "day": "Wednesday",
+      "zone": "B"
+    },
+    {
+      "street": "MIDDLE ST",
+      "low": 50,
+      "high": 166,
+      "day": "Thursday",
+      "zone": "A"
+    },
+    {
+      "street": "MIDDLE ST",
+      "low": 708,
+      "high": 1136,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "MIDDLE ST",
+      "low": 1028,
+      "high": 1028,
+      "day": "Friday",
+      "zone": "A"
+    },
+    {
+      "street": "MILL RIVER DR",
+      "low": 7,
+      "high": 102,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "MILL ST",
+      "low": 8,
+      "high": 134,
+      "day": "Tuesday",
+      "zone": "B"
+    },
+    {
+      "street": "MILLETT AVE",
+      "low": 17,
+      "high": 43,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "MILLSTONE LN",
+      "low": 10,
+      "high": 47,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "MONATIQUOT ST",
+      "low": 16,
+      "high": 76,
+      "day": "Friday",
+      "zone": "A"
+    },
+    {
+      "street": "MONTCALM ST",
+      "low": 11,
+      "high": 12,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "MOORE RD",
+      "low": 20,
+      "high": 20,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "MORELAND RD",
+      "low": 14,
+      "high": 134,
+      "day": "Friday",
+      "zone": "A"
+    },
+    {
+      "street": "MORELAND RD",
+      "low": 179,
+      "high": 187,
+      "day": "Thursday",
+      "zone": "B"
+    },
+    {
+      "street": "MORELL ST",
+      "low": 7,
+      "high": 31,
+      "day": "Friday",
+      "zone": "A"
+    },
+    {
+      "street": "MORNINGSIDE PATH",
+      "low": 5,
+      "high": 132,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "MORRELL ST",
+      "low": 3,
+      "high": 3,
+      "day": "Friday",
+      "zone": "A"
+    },
+    {
+      "street": "MOULTON AVE",
+      "low": 14,
+      "high": 34,
+      "day": "Friday",
+      "zone": "B"
+    },
+    {
+      "street": "MOUNTAIN VIEW RD",
+      "low": 29,
+      "high": 85,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "MT IDA RD",
+      "low": 10,
+      "high": 32,
+      "day": "Thursday",
+      "zone": "A"
+    },
+    {
+      "street": "MT VERNON RD EAST",
+      "low": 7,
+      "high": 208,
+      "day": "Thursday",
+      "zone": "A"
+    },
+    {
+      "street": "MT VERNON RD WEST",
+      "low": 5,
+      "high": 148,
+      "day": "Thursday",
+      "zone": "A"
+    },
+    {
+      "street": "MULCAHY LN",
+      "low": 15,
+      "high": 55,
+      "day": "Monday",
+      "zone": "B"
+    },
+    {
+      "street": "MULLIGAN DR",
+      "low": 7,
+      "high": 33,
+      "day": "Monday",
+      "zone": "A"
+    },
+    {
+      "street": "MUTTON LANE",
+      "low": 4,
+      "high": 71,
+      "day": "Tuesday",
+      "zone": "A"
+    },
+    {
+      "street": "MUTTON LANE",
+      "low": 94,
+      "high": 185,
+      "day": "Wednesday",
+      "zone": "A"
+    },
+    {
+      "street": "MYRTLE ST",
+      "low": 12,
+      "high": 76,
+      "day": "Wednesday",
+      "zone": "A"
+    }
   ]
 }
