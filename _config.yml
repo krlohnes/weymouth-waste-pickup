@@ -1,0 +1,8 @@
+exclude:
+  - test/
+  - local-server/
+  - validation/
+  - node_modules/
+  - "*.md"
+  - CLAUDE.md
+  - README.md
