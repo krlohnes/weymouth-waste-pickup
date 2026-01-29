@@ -41,7 +41,7 @@ python weymouth_pdf_parser.py yardwastepickup_25.pdf
 1. Download the current year's PDF from Weymouth's website
 2. Activate the Python environment: `source pdf_parser_env/bin/activate`
 3. Run the parser: `python weymouth_pdf_parser.py yardwastepickup_25.pdf`
-4. Copy the generated JSON files to the main app: `cp parsed-data/*.json ../data/2025/`
+4. Copy the generated JSON files to the main app: `cp parsed-data/*.json ../data/2026/`
 
 ## Output Files
 

@@ -7,22 +7,22 @@ let deferredPrompt;
 let selectedDate = new Date(); // Current selected date for calculations
 
 // Yard waste season constants
-const YARD_WASTE_START_DATE = new Date('2025-04-07');
-const YARD_WASTE_END_DATE = new Date('2025-12-08');
-const YARD_WASTE_START_TEXT = 'April 7th';
-const YARD_WASTE_END_TEXT = 'December 8th';
-const YARD_WASTE_YEAR = '2025';
+const YARD_WASTE_START_DATE = new Date('2026-04-06');
+const YARD_WASTE_END_DATE = new Date('2026-12-07');
+const YARD_WASTE_START_TEXT = 'April 6th';
+const YARD_WASTE_END_TEXT = 'December 7th';
+const YARD_WASTE_YEAR = '2026';
 
 // Load data from JSON files
 async function loadData() {
     try {
         // Load holidays data
-        const holidaysResponse = await fetch('data/2025/holidays.json');
+        const holidaysResponse = await fetch('data/2026/holidays.json');
         const holidaysData = await holidaysResponse.json();
         holidayData = holidaysData.holidays;
 
         // Load yard waste data
-        const yardWasteResponse = await fetch('data/2025/yardwaste.json');
+        const yardWasteResponse = await fetch('data/2026/yardwaste.json');
         const yardWasteData = await yardWasteResponse.json();
         yardWasteWeeks = yardWasteData.yardWasteWeeks;
 
@@ -37,7 +37,7 @@ async function loadData() {
 
         streetData = [];
         for (const file of streetFiles) {
-            const response = await fetch(`data/2025/${file}`);
+            const response = await fetch(`data/2026/${file}`);
             const data = await response.json();
             streetData = streetData.concat(data.streets);
         }
