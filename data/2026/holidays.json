@@ -1,16 +1,17 @@
 {
   "holidays": {
-    "2026-01-01": "New Year's Day",
-    "2026-01-19": "Martin Luther King Jr. Day",
-    "2026-02-16": "Presidents Day",
-    "2026-04-20": "Patriots Day",
-    "2026-05-25": "Memorial Day",
-    "2026-06-19": "Juneteenth",
-    "2026-07-04": "Independence Day",
-    "2026-09-07": "Labor Day",
-    "2026-10-12": "Columbus Day",
-    "2026-11-11": "Veterans Day",
-    "2026-11-26": "Thanksgiving",
-    "2026-12-25": "Christmas Day"
+    "2026-01-01": { "name": "New Year's Day", "delay_days": 1 },
+    "2026-01-19": { "name": "Martin Luther King Jr. Day", "delay_days": 1 },
+    "2026-02-16": { "name": "Presidents Day", "delay_days": 1 },
+    "2026-02-23": { "name": "Snowstorm", "delay_days": 2 },
+    "2026-04-20": { "name": "Patriots Day", "delay_days": 1 },
+    "2026-05-25": { "name": "Memorial Day", "delay_days": 1 },
+    "2026-06-19": { "name": "Juneteenth", "delay_days": 1 },
+    "2026-07-04": { "name": "Independence Day", "delay_days": 1 },
+    "2026-09-07": { "name": "Labor Day", "delay_days": 1 },
+    "2026-10-12": { "name": "Columbus Day", "delay_days": 1 },
+    "2026-11-11": { "name": "Veterans Day", "delay_days": 1 },
+    "2026-11-26": { "name": "Thanksgiving", "delay_days": 1 },
+    "2026-12-25": { "name": "Christmas Day", "delay_days": 1 }
   }
 }

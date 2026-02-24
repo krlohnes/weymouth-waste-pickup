@@ -1,16 +1,16 @@
 {
   "holidays": {
-    "2025-01-01": "New Year's Day",
-    "2025-01-20": "Martin Luther King Jr. Day",
-    "2025-02-17": "Presidents Day",
-    "2025-04-21": "Patriots Day",
-    "2025-05-26": "Memorial Day",
-    "2025-06-19": "Juneteenth",
-    "2025-07-04": "Independence Day",
-    "2025-09-01": "Labor Day",
-    "2025-10-13": "Columbus Day",
-    "2025-11-11": "Veterans Day",
-    "2025-11-27": "Thanksgiving",
-    "2025-12-25": "Christmas Day"
+    "2025-01-01": { "name": "New Year's Day", "delay_days": 1 },
+    "2025-01-20": { "name": "Martin Luther King Jr. Day", "delay_days": 1 },
+    "2025-02-17": { "name": "Presidents Day", "delay_days": 1 },
+    "2025-04-21": { "name": "Patriots Day", "delay_days": 1 },
+    "2025-05-26": { "name": "Memorial Day", "delay_days": 1 },
+    "2025-06-19": { "name": "Juneteenth", "delay_days": 1 },
+    "2025-07-04": { "name": "Independence Day", "delay_days": 1 },
+    "2025-09-01": { "name": "Labor Day", "delay_days": 1 },
+    "2025-10-13": { "name": "Columbus Day", "delay_days": 1 },
+    "2025-11-11": { "name": "Veterans Day", "delay_days": 1 },
+    "2025-11-27": { "name": "Thanksgiving", "delay_days": 1 },
+    "2025-12-25": { "name": "Christmas Day", "delay_days": 1 }
   }
 }

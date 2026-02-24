@@ -193,6 +193,19 @@ describe('Weymouth Waste Pickup Tests', () => {
             assert.strictEqual(getShiftedPickupDay('Saturday'), 'Sunday');
             assert.strictEqual(getShiftedPickupDay('Sunday'), 'Monday');
         });
+
+        it('should support multi-day shifts', () => {
+            assert.strictEqual(getShiftedPickupDay('Monday', 2), 'Wednesday');
+            assert.strictEqual(getShiftedPickupDay('Tuesday', 2), 'Thursday');
+            assert.strictEqual(getShiftedPickupDay('Wednesday', 2), 'Friday');
+            assert.strictEqual(getShiftedPickupDay('Thursday', 2), 'Saturday');
+            assert.strictEqual(getShiftedPickupDay('Friday', 2), 'Sunday');
+        });
+
+        it('should support 3-day shifts', () => {
+            assert.strictEqual(getShiftedPickupDay('Monday', 3), 'Thursday');
+            assert.strictEqual(getShiftedPickupDay('Friday', 3), 'Monday');
+        });
     });
     
     describe('Holiday Pickup Day Integration Tests', () => {
