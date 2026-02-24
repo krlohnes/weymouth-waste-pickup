@@ -3,7 +3,7 @@
     "2026-01-01": { "name": "New Year's Day", "delay_days": 1 },
     "2026-01-19": { "name": "Martin Luther King Jr. Day", "delay_days": 1 },
     "2026-02-16": { "name": "Presidents Day", "delay_days": 1 },
-    "2026-02-23": { "name": "Snowstorm", "delay_days": 2 },
+    "2026-02-23": { "name": "Snowstorm", "delay_days": 1, "closed_days": ["Monday", "Tuesday"] },
     "2026-04-20": { "name": "Patriots Day", "delay_days": 1 },
     "2026-05-25": { "name": "Memorial Day", "delay_days": 1 },
     "2026-06-19": { "name": "Juneteenth", "delay_days": 1 },

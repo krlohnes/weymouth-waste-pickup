@@ -370,7 +370,7 @@ function updatePickupDay(streetInfo, holidayInfo) {
     const pickupDayText = document.getElementById('pickupDayText');
 
     if (holidayInfo && holidayInfo.isDelayed) {
-        const delayedDay = getShiftedPickupDay(streetInfo.day, holidayInfo.delayDays);
+        const delayedDay = getShiftedPickupDay(streetInfo.day, holidayInfo.delayDays, holidayInfo.closedDays);
 
         pickupDayIcon.textContent = '⚠️';
         pickupDayText.textContent = `Pickup day: ${delayedDay} due to ${holidayInfo.holiday} (normally ${streetInfo.day})`;
@@ -472,9 +472,10 @@ function checkHolidayDelay(pickupDay) {
         const holidayDate = new Date(date);
         const dayOfWeek = holidayDate.getDay();
 
-        // Support both old format (string) and new format (object with name/delay_days)
+        // Support both old format (string) and new format (object with name/delay_days/closed_days)
         const holidayName = typeof holiday === 'string' ? holiday : holiday.name;
         const delayDays = typeof holiday === 'object' && holiday.delay_days ? holiday.delay_days : 1;
+        const closedDays = typeof holiday === 'object' && holiday.closed_days ? holiday.closed_days : [];
 
         // Only weekday holidays (Mon-Fri) affect pickup
         if (dayOfWeek >= 1 && dayOfWeek <= 5) {
@@ -488,14 +489,16 @@ function checkHolidayDelay(pickupDay) {
                         holiday: holidayName,
                         date: holidayDate,
                         isDelayed: true,
-                        delayDays: delayDays
+                        delayDays: delayDays,
+                        closedDays: closedDays
                     };
                 } else {
                     holidayInfo = {
                         holiday: holidayName,
                         date: holidayDate,
                         isDelayed: false,
-                        delayDays: delayDays
+                        delayDays: delayDays,
+                        closedDays: closedDays
                     };
                 }
                 break;
@@ -760,11 +763,17 @@ function isPickupDelayedByHoliday(pickupDay, holidayDate) {
 }
 
 // Helper function to get the shifted pickup day
-function getShiftedPickupDay(normalDay, delayDays) {
+function getShiftedPickupDay(normalDay, delayDays, closedDays) {
     delayDays = delayDays || 1;
+    closedDays = closedDays || [];
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const normalDayIndex = days.indexOf(normalDay);
-    return days[(normalDayIndex + delayDays) % 7];
+    let shiftedIndex = (normalDayIndex + delayDays) % 7;
+    // If shifted day lands on a closed day, advance to next open day
+    while (closedDays.includes(days[shiftedIndex])) {
+        shiftedIndex = (shiftedIndex + 1) % 7;
+    }
+    return days[shiftedIndex];
 }
 
 // Export functions for testing

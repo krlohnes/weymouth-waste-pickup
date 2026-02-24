@@ -206,6 +206,33 @@ describe('Weymouth Waste Pickup Tests', () => {
             assert.strictEqual(getShiftedPickupDay('Monday', 3), 'Thursday');
             assert.strictEqual(getShiftedPickupDay('Friday', 3), 'Monday');
         });
+
+        it('should skip closed days after shifting', () => {
+            // Snowstorm: 1-day delay, Monday and Tuesday closed
+            // Monday + 1 = Tuesday (closed) → Wednesday
+            assert.strictEqual(getShiftedPickupDay('Monday', 1, ['Monday', 'Tuesday']), 'Wednesday');
+            // Tuesday + 1 = Wednesday (open)
+            assert.strictEqual(getShiftedPickupDay('Tuesday', 1, ['Monday', 'Tuesday']), 'Wednesday');
+            // Wednesday + 1 = Thursday (open)
+            assert.strictEqual(getShiftedPickupDay('Wednesday', 1, ['Monday', 'Tuesday']), 'Thursday');
+            // Thursday + 1 = Friday (open)
+            assert.strictEqual(getShiftedPickupDay('Thursday', 1, ['Monday', 'Tuesday']), 'Friday');
+            // Friday + 1 = Saturday (open)
+            assert.strictEqual(getShiftedPickupDay('Friday', 1, ['Monday', 'Tuesday']), 'Saturday');
+        });
+
+        it('should skip multiple consecutive closed days', () => {
+            // 3-day closure: Mon/Tue/Wed closed, 1-day delay
+            // Monday + 1 = Tuesday (closed) → Wednesday (closed) → Thursday
+            assert.strictEqual(getShiftedPickupDay('Monday', 1, ['Monday', 'Tuesday', 'Wednesday']), 'Thursday');
+            // Tuesday + 1 = Wednesday (closed) → Thursday
+            assert.strictEqual(getShiftedPickupDay('Tuesday', 1, ['Monday', 'Tuesday', 'Wednesday']), 'Thursday');
+        });
+
+        it('should handle no closed days (standard holiday)', () => {
+            assert.strictEqual(getShiftedPickupDay('Monday', 1, []), 'Tuesday');
+            assert.strictEqual(getShiftedPickupDay('Friday', 1, []), 'Saturday');
+        });
     });
     
     describe('Holiday Pickup Day Integration Tests', () => {
