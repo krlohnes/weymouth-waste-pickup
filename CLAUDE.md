@@ -78,8 +78,7 @@ Holidays that affect trash pickup (weekday holidays only):
 - Christmas Day (December 25)
 
 ### Yard Waste Schedule
-- Zone B typically starts the first Monday of April
-- Zone A starts the following week
+- One zone starts the first Monday of April and the other starts the following week — check the official calendar each year (in 2026, Zone A starts April 6 and Zone B starts April 13)
 - Biweekly alternating through summer
 - Weekly for both zones from late October through early December
 - Official PDF available at weymouth.ma.us (search for "yard waste pickup")
